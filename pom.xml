@@ -14,7 +14,7 @@
     <name>rfo-upfc-cat</name>
     <description>rfo-upfc-cat</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
