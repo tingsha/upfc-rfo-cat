@@ -789,21 +789,18 @@ a:hover {
 
 .slide-title {
     margin-top: 10px;
-}
-
-.slide-title > h1 {
     font-weight: 700;
     font-size: 58px;
 }
 
 @media (max-width: 991px) {
-    .slide-title > h1 {
+    .slide-title {
         font-size: 46px;
     }
 }
 
 @media (max-width: 768px) {
-    .slide-title > h1 {
+    .slide-title {
         font-size: 30px;
     }
 }
@@ -812,8 +809,56 @@ a:hover {
     margin-top: 60px;
 }
 
-.slider-button > a, .slider-button button {
+.slider-button > a,
+.slider-button button {
     margin-left: 0;
+}
+
+.change-buttons {
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    left: 10%;
+    bottom: 10%;
+}
+
+@media (max-width: 575px) {
+    .change-buttons {
+        bottom: 20%;
+    }
+}
+
+.swiper-button-prev {
+    position: relative;
+    font-size: 38px;
+    color: white;
+}
+
+.swiper-button-prev::after {
+    content: "\f054";
+    font-family: "Material Design Icons";
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.swiper-button-prev:hover {
+    color: #204995 !important;
+}
+
+.swiper-button-next {
+    position: relative;
+    font-size: 38px;
+    margin-left: 40px;
+    color: white;
+}
+
+.swiper-button-next::after {
+    content: "\f054";
+    font-family: "Material Design Icons";
+}
+
+.swiper-button-next:hover {
+    color: #204995 !important;
 }
 
 .slide-text {
