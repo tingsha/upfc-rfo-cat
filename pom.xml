@@ -10,7 +10,8 @@
     </parent>
     <groupId>com.naname</groupId>
     <artifactId>rfo-upfc-cat</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
     <name>rfo-upfc-cat</name>
     <description>rfo-upfc-cat</description>
     <properties>
