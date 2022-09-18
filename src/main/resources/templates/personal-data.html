@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/qiv0zqm.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Work+Sans:wght@300;400;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Work+Sans:wght@300;400;500&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="/assets/css/style.min.css">
@@ -23,7 +23,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="description" content="">
 
-    <title>Трансфер</title></head>
+    <title>Соглашение об обработке персональных данных</title></head>
 
 <body>
 <div class="page animated" style="animation-duration: 500ms;">
@@ -79,8 +79,7 @@
                             </div>
                         </div>
                     </article>
-                    <a class="button button-primary-outline button-winona"
-                       href="/templates/technical-works.htmlworks.html">
+                    <a class="button button-primary-outline button-winona" href="/technical-works.html">
                         <div class="content-original">ЛИЧНЫЙ КАБИНЕТ</div>
                         <div class="content-dubbed">ЛИЧНЫЙ КАБИНЕТ</div>
                     </a>
@@ -164,202 +163,127 @@
 
     <div class="breadcrumbs">
         <div class="breadcrumbs__container">
-            <h1 class="breadcrumbs__title">Трансфер</h1>
+            <h1 class="breadcrumbs__title">Соглашение об обработке персональных данных</h1>
             <div class="breadcrumbs__path">
-                <ul class="breadcrumbs__list d-flex pl-0">
+                <ul class="breadcrumbs__list pl-0">
                     <li class="breadcrumb__item pl-0">
                         <a href="/">Российское Фелинологическое Общество</a>
                     </li>
-                    <li class="breadcrumb__item">
-                        <a href="/">РФО ОНЛАЙН</a>
-                    </li>
-                    <li class="breadcrumb__item active"><span>Трансфер</span></li>
+                    <li class="breadcrumb__item active"><span>Соглашение об обработке персональных данных</span></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="forms__layout">
-            <h3 class="layout__title" style="text-align: center;">Форма заказа трансфера.
-            </h3>
-            <div class="layout__content d-flex justify-content-center flex-wrap">
-                <ul class="layout__subtitle list-0 w-100">
-                    <li>
-                        <h5>Трансфер электронная форма 350 рублей
-                        </h5>
-                    </li>
-                    <li>
-                        <h5>Трансфер бумажный носитель 350 рублей
-                        </h5>
-                    </li>
-                    <li>
-                        <h5>Трансфер полный комплект 700 рублей
-                        </h5>
-                    </li>
-                </ul>
-                <form class="layout__forms" method="post" th:object="${transferForm}" th:action="@{/transfer}"
-                      enctype="multipart/form-data">
-                    <div class="forms__wrapper">
-                        <div class="form form-gray">
-                            <label for="nickname">Кличка</label>
-                            <input th:field="*{nickname}" id="nickname" type="text" required>
-                        </div>
-                        <div class="form form-gray">
-                            <label for="sex">Пол</label>
-                            <input th:field="*{sex}" id="sex" type="text"></input>
-                        </div>
-                    </div>
-                    <div class="forms__wrapper">
-                        <div class="form form-gray">
-                            <label for="birth-date">Дата рождения</label>
-                            <input th:field="*{birthDate}" id="birth-date" type="text" required>
-                        </div>
-                        <div class="form form-gray">
-                            <label for="breed">Порода</label>
-                            <input th:field="*{breed}" id="breed" type="text"></input>
-                        </div>
-                    </div>
-                    <div class="forms__wrapper">
-                        <div class="form form-gray">
-                            <label for="color">Окрас</label>
-                            <input th:field="*{color}" id="color" type="text" required>
-                        </div>
-                        <div class="form form-gray">
-                            <label for="microchip">Номер микрочипа, если есть</label>
-                            <input th:field="*{microchip}" id="microchip" type="text"></input>
-                        </div>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="breeder">Заводчик (Адрес, индекс, название питомника)</label>
-                        <input th:field="*{breeder}" id="breeder" type="text" required>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="owner">Владелец (Адрес, индекс, название питомника)</label>
-                        <input th:field="*{owner}" id="owner" type="text" required>
-                    </div>
-                    <div class="forms__wrapper">
-                        <div class="form form-gray">
-                            <label for="email">Ваш E-mail</label>
-                            <input th:field="*{email}" id="email" type="text" required>
-                        </div>
-                        <div class="form form-gray">
-                            <label for="phone">Ваш Телефон</label>
-                            <input th:field="*{phone}" id="phone" type="text"></input>
-                        </div>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="cardPhoto">Фото карточки котенка/родословной</label>
-                        <input id="cardPhoto" name="cardPhoto" type="file" required></input>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="fatherPedigree">Фото родословной папы.</label>
-                        <input id="fatherPedigree" name="fatherPedigree" type="file" required></input>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="fatherCertificate">Фото последнего титульного сертификата родословной папы, при его
-                            наличии.</label>
-                        <input id="fatherCertificate" name="fatherCertificate" type="file" required></input>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="motherPedigree">Фото родословной мамы.</label>
-                        <input id="motherPedigree" name="motherPedigree" type="file" required></input>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="motherCertificate">Фото последнего титульного сертификата родословной мамы, при его
-                            наличии.</label>
-                        <input id="motherCertificate" name="motherCertificate" type="file" required></input>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="document-select">Нажмите для выбора типа получения документов.</label>
-                        <select name="type" id="document-select" required>
-                            <option th:each="type : ${T(com.naname.rfoupfccat.controller.TransferController).getTypes()}"
-                                    th:value="${type}" th:text="${type.description}"></option>
-                        </select>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="comment">Комментарий</label>
-                        <textarea th:field="*{comment}" id="comment" type="text"></textarea>
-                    </div>
-                    <div class="layout__buttons w-100">
-                        <button type="submit" id="send-form"
-                                class="button button-primary button-primary-outline button-winona m-0 mr-2">
-                            <div class="content-original">отправить</div>
-                            <div class="content-dubbed">отправить</div>
-                        </button>
-                        <span>после отправки заполненной формы, вам необходимо оплатить целевой взнос
-                            </span>
-                        <button class="button button-primary-outline button-winona m-0 ml-2">
-                            <div class="content-original">
-                                оплатить
-                            </div>
-                            <div class="content-dubbed">
-                                оплатить
-                            </div>
-                        </button>
-                    </div>
-                </form>
-                <div class="layout__license w-100">
-                    <ul class="list-0">
-                        <li class="layout__license-item">Отправляя форму вы соглашаетесь с <a
-                                style="text-align: center;"
-                                href="/personal">"Политикой обработки персональных данных"</a></li>
-                        <li class="layout__license-item"><a href="/payment">Информация о "Способах оплаты"</a></li>
-                        <li class="layout__license-item"><a href="/delivery">Информация о "Доставке"</a></li>
-                        <li class="layout__license-item"><a href="/return">Информация о "Возврате"</a></li>
-                    </ul>
-                </div>
-            </div>
+            <h2 class="layout__title-big">Основная информация</h2>
+            <p class="mt-3">Присоединяясь к настоящему Соглашению и оставляя свои данные на Сайте upfc-rfo-cat.ru (далее
+                – Сайт), путем
+                заполнения полей онлайн-заявки и иных форм, Пользователь:
+            </p>
+            <ul class="list__marked">
+                <li>подтверждает, что все указанные им данные принадлежат лично ему</li>
+                <li>подтверждает и признает, что им внимательно в полном объеме прочитано Соглашение и условия обработки
+                    его
+                    персональных данных, указываемых им в полях онлайн заявки, текст соглашения и условия обработки
+                    персональных данных ему понятны
+                </li>
+                <li>дает согласие на обработку Сайтом предоставляемых в составе информации персональных данных в целях
+                    заключения между ним и Сайтом настоящего Соглашения, а также его последующего исполнения
+                </li>
+                <li>выражает согласие с условиями обработки персональных данных без оговорок и ограничений</li>
+                <li>дает свое согласие на обработку его персональных данных, а именно совершение действий,
+                    предусмотренных
+                    п. 3 ч. 1 ст. 3 Федерального закона от 27.07.2006 N 152-ФЗ «О персональных данных», и подтверждает,
+                    что,
+                    давая такое согласие, он действует свободно, своей волей и в своем интересе
+                </li>
+                <li>согласие Пользователя на обработку персональных данных является конкретным, информированным и
+                    сознательным
+                </li>
+            </ul>
+            <p>Настоящее согласие Пользователя признается исполненным в простой письменной форме на обработку следующих
+                персональных данных:
+            </p>
+            <ul class="list__marked">
+                <li>фамилии, имени, отчества
+                </li>
+                <li>номера телефонов
+                </li>
+                <li>адреса электронной почты (E-mail)
+                </li>
+                <li>IP-адрес
+                </li>
+                <li>а также иные полученные от Пользователя персональные данные
+                </li>
+            </ul>
+            <h3 class="layout__title-big mb-3">Цель сбора персональных данных.</h3>
+            <p>Персональные данные собираются с целью обеспечения высокого качества обслуживания Пользователя. Сайт
+                собирает
+                контактные данные чтобы знать, как при необходимости связаться с Пользователем. E-mail Пользователя
+                может
+                использоваться для рассылки вам новостей и информации о товарах и услугах. Целью сбора IP-адреса
+                Пользователя является определение местоположения Пользователя для передачи менеджерам, ответственным за
+                общение с клиентами в соответствующем регионе. IP-адрес пользователя не используется для установления
+                личности Пользователя и точного местонахождения.
+            </p>
+            <h3 class="layout__title-big mb-3">Использование cookies.</h3>
+            <p>Сайт использует файлы cookies для отслеживания информации о поведении пользователя с целью определения
+                успешных и неуспешных практик взаимодействия Пользователя с Сайтом. Полученные таким образом данные
+                являются
+                обезличенными и могут использоваться для улучшения сайта. Пользователь настоящим дает согласие на сбор,
+                анализ и использование cookies, в том числе третьими лицами для целей формирования статистики и
+                оптимизации
+                рекламных сообщений.
+            </p>
+            <p>Пользователь, предоставляет сайту формулажизни.рф право осуществлять следующие действия (операции) с
+                персональными данными:
+            </p>
+            <ul class="list__marked">
+                <li>сбор и накопление
+                </li>
+                <li>хранение в течение установленных нормативными документами сроков хранения отчетности, но не менее
+                    трех
+                    лет, с момента даты прекращения пользования услуг Пользователем
+                </li>
+                <li>уточнение (обновление, изменение)
+                </li>
+                <li>использование
+                </li>
+                <li>уничтожение</li>
+                <li>обезличивание
+                </li>
+                <li>передача по требованию суда, в т.ч., третьим лицам, с соблюдением мер, обеспечивающих защиту
+                    персональных данных от несанкционированного доступа
+                </li>
+            </ul>
+            <ul class="list-0">
+                <li class="pt-2">Указанное согласие действует бессрочно с момента предоставления данных и может быть
+                    отозвано
+                    Пользователем путем подачи заявления администрации сайта с указанием данных, определенных ст. 14
+                    Закона
+                    «О персональных данных».
+                </li>
+                <li class="pt-2">Отзыв согласия на обработку персональных данных может быть осуществлен путем
+                    направления Пользователем
+                    соответствующего распоряжения в простой письменной форме на адрес электронной почты (E-mail)
+                    upfc@upfc-rfo-cat.ru
+                </li>
+                <li class="pt-2">Сайт имеет право вносить изменения в настоящее Соглашение. При внесении изменений в
+                    актуальной редакции
+                    указывается дата последнего обновления. Новая редакция Соглашения вступает в силу с момента ее
+                    размещения, если иное не предусмотрено новой редакцией Соглашения
+                </li>
+                <li class="pt-2">Действующая редакция всегда находится на странице по адресу
+                    upfc-rfo-cat.ru/personalData
+                </li>
+                <li class="pt-2">К настоящему Соглашению и отношениям между пользователем и Сайтом, возникающим в связи
+                    с применением
+                    Соглашения, подлежит применению право Российской Федерации.
+                </li>
+            </ul>
         </div>
     </div>
-    <section class="contacts purple__contacts">
-        <div class="contacts__wrapper">
-            <div class="contacts__left pb-0">
-                <h3 class="contacts__title">Написать нам</h3>
-                <form class="forms" method="post" th:object="${feedbackForm}" th:action="@{/send/feedback}">
-                    <div class="forms__wrapper">
-                        <div class="form">
-                            <label for="feedbackName">Имя</label>
-                            <input th:field="*{name}" id="feedbackName" type="text" required>
-                        </div>
-                        <div class="form">
-                            <label for="feedbackPhone">Телефон</label>
-                            <input th:field="*{phone}" id="feedbackPhone" type="text">
-                        </div>
-                    </div>
-                    <div class="form w-100">
-                        <label for="feedbackEmail">Ваш E-mail</label>
-                        <input th:field="*{email}" id="feedbackEmail" type="text" required>
-                    </div>
-                    <div class="form w-100">
-                        <label for="feedbackMessage">Ваше сообщение</label>
-                        <textarea th:field="*{comment}" id="feedbackMessage" type="text" required></textarea>
-                    </div>
-                    <div class="contacts__buttons">
-                        <button type="submit" class="button button-primary button-primary-outline button-winona">
-                            <div class="content-original white">отправить</div>
-                            <div class="content-dubbed">отправить</div>
-                        </button>
-                        <span>или использовать</span>
-                        <a class="button button-primary-outline button-winona"
-                           href="https://api.whatsapp.com/send?phone=79089037937" target="_blank">
-                            <div class="content-original">
-                                <span class="icon novi-icon mdi mdi-whatsapp big-icon"></span>
-                                whatsapp
-                            </div>
-                            <div class="content-dubbed">
-                                <span class="icon novi-icon mdi mdi-whatsapp big-icon"></span>
-                                whatsapp
-                            </div>
-                        </a>
-                    </div>
-                </form>
-                <span class="contacts__policy">Отправляя форму вы соглашаетесь с
-                        <a href="#" class="white-hover">"Политикой обработки персональных данных"</a></span>
-            </div>
-            <div class="contacts__footer">
-            </div>
-        </div>
-    </section>
 
     <footer class="footer">
         <div class="footer__wrapper">
@@ -416,16 +340,16 @@
                 <h4 class="column__title">
                     Заказать обратный звонок
                 </h4>
-                <form method="post" th:object="${callbackForm}" th:action="@{/send/callback}">
+                <form action="">
                     <div class="column__content">
                         <div class="column__wrapper d-flex justify-content-between">
                             <div class="form form-label-outside">
-                                <label for="callbackName">Имя</label>
-                                <input th:field="*{name}" id="callbackName" type="text" required>
+                                <label for="name">Имя</label>
+                                <input id="name" type="text" required>
                             </div>
                             <div class="form form-label-outside">
-                                <label for="callbackPhone">Телефон</label>
-                                <input th:field="*{phone}" id="callbackPhone" type="text" required>
+                                <label for="phone">Телефон</label>
+                                <input id="phone" type="text">
                             </div>
                         </div>
                         <div class="footer__callback">

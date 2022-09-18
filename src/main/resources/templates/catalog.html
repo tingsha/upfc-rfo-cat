@@ -23,7 +23,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="description" content="">
 
-    <title>Трансфер</title></head>
+    <title>Номера субъектов РФ</title></head>
 
 <body>
 <div class="page animated" style="animation-duration: 500ms;">
@@ -164,202 +164,373 @@
 
     <div class="breadcrumbs">
         <div class="breadcrumbs__container">
-            <h1 class="breadcrumbs__title">Трансфер</h1>
+            <h1 class="breadcrumbs__title">Номера субъектов РФ</h1>
             <div class="breadcrumbs__path">
                 <ul class="breadcrumbs__list d-flex pl-0">
                     <li class="breadcrumb__item pl-0">
                         <a href="/">Российское Фелинологическое Общество</a>
                     </li>
-                    <li class="breadcrumb__item">
-                        <a href="/">РФО ОНЛАЙН</a>
-                    </li>
-                    <li class="breadcrumb__item active"><span>Трансфер</span></li>
+                    <li class="breadcrumb__item active"><span>Номера субъектов РФ</span></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="forms__layout">
-            <h3 class="layout__title" style="text-align: center;">Форма заказа трансфера.
-            </h3>
-            <div class="layout__content d-flex justify-content-center flex-wrap">
-                <ul class="layout__subtitle list-0 w-100">
-                    <li>
-                        <h5>Трансфер электронная форма 350 рублей
-                        </h5>
-                    </li>
-                    <li>
-                        <h5>Трансфер бумажный носитель 350 рублей
-                        </h5>
-                    </li>
-                    <li>
-                        <h5>Трансфер полный комплект 700 рублей
-                        </h5>
-                    </li>
-                </ul>
-                <form class="layout__forms" method="post" th:object="${transferForm}" th:action="@{/transfer}"
-                      enctype="multipart/form-data">
-                    <div class="forms__wrapper">
-                        <div class="form form-gray">
-                            <label for="nickname">Кличка</label>
-                            <input th:field="*{nickname}" id="nickname" type="text" required>
-                        </div>
-                        <div class="form form-gray">
-                            <label for="sex">Пол</label>
-                            <input th:field="*{sex}" id="sex" type="text"></input>
-                        </div>
-                    </div>
-                    <div class="forms__wrapper">
-                        <div class="form form-gray">
-                            <label for="birth-date">Дата рождения</label>
-                            <input th:field="*{birthDate}" id="birth-date" type="text" required>
-                        </div>
-                        <div class="form form-gray">
-                            <label for="breed">Порода</label>
-                            <input th:field="*{breed}" id="breed" type="text"></input>
-                        </div>
-                    </div>
-                    <div class="forms__wrapper">
-                        <div class="form form-gray">
-                            <label for="color">Окрас</label>
-                            <input th:field="*{color}" id="color" type="text" required>
-                        </div>
-                        <div class="form form-gray">
-                            <label for="microchip">Номер микрочипа, если есть</label>
-                            <input th:field="*{microchip}" id="microchip" type="text"></input>
-                        </div>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="breeder">Заводчик (Адрес, индекс, название питомника)</label>
-                        <input th:field="*{breeder}" id="breeder" type="text" required>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="owner">Владелец (Адрес, индекс, название питомника)</label>
-                        <input th:field="*{owner}" id="owner" type="text" required>
-                    </div>
-                    <div class="forms__wrapper">
-                        <div class="form form-gray">
-                            <label for="email">Ваш E-mail</label>
-                            <input th:field="*{email}" id="email" type="text" required>
-                        </div>
-                        <div class="form form-gray">
-                            <label for="phone">Ваш Телефон</label>
-                            <input th:field="*{phone}" id="phone" type="text"></input>
-                        </div>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="cardPhoto">Фото карточки котенка/родословной</label>
-                        <input id="cardPhoto" name="cardPhoto" type="file" required></input>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="fatherPedigree">Фото родословной папы.</label>
-                        <input id="fatherPedigree" name="fatherPedigree" type="file" required></input>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="fatherCertificate">Фото последнего титульного сертификата родословной папы, при его
-                            наличии.</label>
-                        <input id="fatherCertificate" name="fatherCertificate" type="file" required></input>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="motherPedigree">Фото родословной мамы.</label>
-                        <input id="motherPedigree" name="motherPedigree" type="file" required></input>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="motherCertificate">Фото последнего титульного сертификата родословной мамы, при его
-                            наличии.</label>
-                        <input id="motherCertificate" name="motherCertificate" type="file" required></input>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="document-select">Нажмите для выбора типа получения документов.</label>
-                        <select name="type" id="document-select" required>
-                            <option th:each="type : ${T(com.naname.rfoupfccat.controller.TransferController).getTypes()}"
-                                    th:value="${type}" th:text="${type.description}"></option>
-                        </select>
-                    </div>
-                    <div class="form form-gray w-100">
-                        <label for="comment">Комментарий</label>
-                        <textarea th:field="*{comment}" id="comment" type="text"></textarea>
-                    </div>
-                    <div class="layout__buttons w-100">
-                        <button type="submit" id="send-form"
-                                class="button button-primary button-primary-outline button-winona m-0 mr-2">
-                            <div class="content-original">отправить</div>
-                            <div class="content-dubbed">отправить</div>
-                        </button>
-                        <span>после отправки заполненной формы, вам необходимо оплатить целевой взнос
-                            </span>
-                        <button class="button button-primary-outline button-winona m-0 ml-2">
-                            <div class="content-original">
-                                оплатить
-                            </div>
-                            <div class="content-dubbed">
-                                оплатить
-                            </div>
-                        </button>
-                    </div>
-                </form>
-                <div class="layout__license w-100">
-                    <ul class="list-0">
-                        <li class="layout__license-item">Отправляя форму вы соглашаетесь с <a
-                                style="text-align: center;"
-                                href="/personal">"Политикой обработки персональных данных"</a></li>
-                        <li class="layout__license-item"><a href="/payment">Информация о "Способах оплаты"</a></li>
-                        <li class="layout__license-item"><a href="/delivery">Информация о "Доставке"</a></li>
-                        <li class="layout__license-item"><a href="/return">Информация о "Возврате"</a></li>
-                    </ul>
-                </div>
+            <div class="layout__content d-flex justify-content-center flex-wrap p-0">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Наименование субъекта</th>
+                        <th>Номер субъекта</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Алтайский край</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>Амурская область</td>
+                        <td>28</td>
+                    </tr>
+                    <tr>
+                        <td>Архангельская область</td>
+                        <td>29</td>
+                    </tr>
+                    <tr>
+                        <td>Астраханская область</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Белгородская область</td>
+                        <td>31</td>
+                    </tr>
+                    <tr>
+                        <td>Брянская область</td>
+                        <td>32</td>
+                    </tr>
+                    <tr>
+                        <td>Владимирская область</td>
+                        <td>33</td>
+                    </tr>
+                    <tr>
+                        <td>Волгоградская область</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>Вологодская область</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td>Воронежская область</td>
+                        <td>36</td>
+                    </tr>
+                    <tr>
+                        <td>Еврейская автономная область</td>
+                        <td>79</td>
+                    </tr>
+                    <tr>
+                        <td>Забайкальский край</td>
+                        <td>75[9]</td>
+                    </tr>
+                    <tr>
+                        <td>Ивановская область</td>
+                        <td>37</td>
+                    </tr>
+                    <tr>
+                        <td>Иркутская область</td>
+                        <td>38</td>
+                    </tr>
+                    <tr>
+                        <td>Кабардино-Балкарская Республика</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>Калининградская область</td>
+                        <td>39</td>
+                    </tr>
+                    <tr>
+                        <td>Калужская область</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td>Камчатский край</td>
+                        <td>41[10]</td>
+                    </tr>
+                    <tr>
+                        <td>Карачаево-Черкесская Республика</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>Кемеровская область</td>
+                        <td>42</td>
+                    </tr>
+                    <tr>
+                        <td>Кировская область</td>
+                        <td>43</td>
+                    </tr>
+                    <tr>
+                        <td>Костромская область</td>
+                        <td>44</td>
+                    </tr>
+                    <tr>
+                        <td>Краснодарский край</td>
+                        <td>23</td>
+                    </tr>
+                    <tr>
+                        <td>Красноярский край</td>
+                        <td>24</td>
+                    </tr>
+                    <tr>
+                        <td>Курганская область</td>
+                        <td>45</td>
+                    </tr>
+                    <tr>
+                        <td>Курская область</td>
+                        <td>46</td>
+                    </tr>
+                    <tr>
+                        <td>Ленинградская область</td>
+                        <td>47</td>
+                    </tr>
+                    <tr>
+                        <td>Липецкая область</td>
+                        <td>48</td>
+                    </tr>
+                    <tr>
+                        <td>Магаданская область</td>
+                        <td>49</td>
+                    </tr>
+                    <tr>
+                        <td>Москва</td>
+                        <td>77</td>
+                    </tr>
+                    <tr>
+                        <td>Московская область</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>Мурманская область</td>
+                        <td>51</td>
+                    </tr>
+                    <tr>
+                        <td>Ненецкий автономный округ</td>
+                        <td>83</td>
+                    </tr>
+                    <tr>
+                        <td>Нижегородская область</td>
+                        <td>52</td>
+                    </tr>
+                    <tr>
+                        <td>Новгородская область</td>
+                        <td>53</td>
+                    </tr>
+                    <tr>
+                        <td>Новосибирская область</td>
+                        <td>54</td>
+                    </tr>
+                    <tr>
+                        <td>Омская область</td>
+                        <td>55</td>
+                    </tr>
+                    <tr>
+                        <td>Оренбургская область</td>
+                        <td>56</td>
+                    </tr>
+                    <tr>
+                        <td>Орловская область</td>
+                        <td>57</td>
+                    </tr>
+                    <tr>
+                        <td>Пензенская область</td>
+                        <td>58</td>
+                    </tr>
+                    <tr>
+                        <td>Пермский край</td>
+                        <td>59[14]</td>
+                    </tr>
+                    <tr>
+                        <td>Приморский край</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Псковская область</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Адыгея</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Алтай</td>
+                        <td>04[3]</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Башкортостан</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Бурятия</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Дагестан</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Ингушетия</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Калмыкия</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Карелия</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Коми</td>
+                        <td>11</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Крым</td>
+                        <td>91[4]</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Марий Эл</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Мордовия</td>
+                        <td>[13]</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Саха (Якутия)</td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Северная Осетия — Алания</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Татарстан</td>
+                        <td>16</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Тыва</td>
+                        <td>17</td>
+                    </tr>
+                    <tr>
+                        <td>Республика Хакасия</td>
+                        <td>19</td>
+                    </tr>
+                    <tr>
+                        <td>Ростовская область</td>
+                        <td>61</td>
+                    </tr>
+                    <tr>
+                        <td>Рязанская область</td>
+                        <td>62</td>
+                    </tr>
+                    <tr>
+                        <td>Самарская область</td>
+                        <td>63</td>
+                    </tr>
+                    <tr>
+                        <td>Санкт-Петербург</td>
+                        <td>78</td>
+                    </tr>
+                    <tr>
+                        <td>Саратовская область</td>
+                        <td>64</td>
+                    </tr>
+                    <tr>
+                        <td>Сахалинская область</td>
+                        <td>65</td>
+                    </tr>
+                    <tr>
+                        <td>Свердловская область</td>
+                        <td>66</td>
+                    </tr>
+                    <tr>
+                        <td>Севастополь</td>
+                        <td>92[4]</td>
+                    </tr>
+                    <tr>
+                        <td>Смоленская область</td>
+                        <td>67</td>
+                    </tr>
+                    <tr>
+                        <td>Ставропольский край</td>
+                        <td>26</td>
+                    </tr>
+                    <tr>
+                        <td>Тамбовская область</td>
+                        <td>68</td>
+                    </tr>
+                    <tr>
+                        <td>Тверская область</td>
+                        <td>69</td>
+                    </tr>
+                    <tr>
+                        <td>Томская область</td>
+                        <td>70</td>
+                    </tr>
+                    <tr>
+                        <td>Тульская область</td>
+                        <td>71</td>
+                    </tr>
+                    <tr>
+                        <td>Тюменская область</td>
+                        <td>72</td>
+                    </tr>
+                    <tr>
+                        <td>Удмуртская Республика</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>Ульяновская область</td>
+                        <td>73</td>
+                    </tr>
+                    <tr>
+                        <td>Хабаровский край</td>
+                        <td>27</td>
+                    </tr>
+                    <tr>
+                        <td>Ханты-Мансийский автономный округ - Югра</td>
+                        <td>86</td>
+                    </tr>
+                    <tr>
+                        <td>Челябинская область</td>
+                        <td>74</td>
+                    </tr>
+                    <tr>
+                        <td>Чеченская Республика</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Чувашская Республика</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>Чукотский автономный округ</td>
+                        <td>87</td>
+                    </tr>
+                    <tr>
+                        <td>Ямало-Ненецкий автономный округ</td>
+                        <td>89</td>
+                    </tr>
+                    <tr>
+                        <td>Ярославская область</td>
+                        <td>76</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <section class="contacts purple__contacts">
-        <div class="contacts__wrapper">
-            <div class="contacts__left pb-0">
-                <h3 class="contacts__title">Написать нам</h3>
-                <form class="forms" method="post" th:object="${feedbackForm}" th:action="@{/send/feedback}">
-                    <div class="forms__wrapper">
-                        <div class="form">
-                            <label for="feedbackName">Имя</label>
-                            <input th:field="*{name}" id="feedbackName" type="text" required>
-                        </div>
-                        <div class="form">
-                            <label for="feedbackPhone">Телефон</label>
-                            <input th:field="*{phone}" id="feedbackPhone" type="text">
-                        </div>
-                    </div>
-                    <div class="form w-100">
-                        <label for="feedbackEmail">Ваш E-mail</label>
-                        <input th:field="*{email}" id="feedbackEmail" type="text" required>
-                    </div>
-                    <div class="form w-100">
-                        <label for="feedbackMessage">Ваше сообщение</label>
-                        <textarea th:field="*{comment}" id="feedbackMessage" type="text" required></textarea>
-                    </div>
-                    <div class="contacts__buttons">
-                        <button type="submit" class="button button-primary button-primary-outline button-winona">
-                            <div class="content-original white">отправить</div>
-                            <div class="content-dubbed">отправить</div>
-                        </button>
-                        <span>или использовать</span>
-                        <a class="button button-primary-outline button-winona"
-                           href="https://api.whatsapp.com/send?phone=79089037937" target="_blank">
-                            <div class="content-original">
-                                <span class="icon novi-icon mdi mdi-whatsapp big-icon"></span>
-                                whatsapp
-                            </div>
-                            <div class="content-dubbed">
-                                <span class="icon novi-icon mdi mdi-whatsapp big-icon"></span>
-                                whatsapp
-                            </div>
-                        </a>
-                    </div>
-                </form>
-                <span class="contacts__policy">Отправляя форму вы соглашаетесь с
-                        <a href="#" class="white-hover">"Политикой обработки персональных данных"</a></span>
-            </div>
-            <div class="contacts__footer">
-            </div>
-        </div>
-    </section>
 
     <footer class="footer">
         <div class="footer__wrapper">
@@ -416,16 +587,16 @@
                 <h4 class="column__title">
                     Заказать обратный звонок
                 </h4>
-                <form method="post" th:object="${callbackForm}" th:action="@{/send/callback}">
+                <form action="">
                     <div class="column__content">
                         <div class="column__wrapper d-flex justify-content-between">
                             <div class="form form-label-outside">
-                                <label for="callbackName">Имя</label>
-                                <input th:field="*{name}" id="callbackName" type="text" required>
+                                <label for="name">Имя</label>
+                                <input id="name" type="text" required>
                             </div>
                             <div class="form form-label-outside">
-                                <label for="callbackPhone">Телефон</label>
-                                <input th:field="*{phone}" id="callbackPhone" type="text" required>
+                                <label for="phone">Телефон</label>
+                                <input id="phone" type="text">
                             </div>
                         </div>
                         <div class="footer__callback">

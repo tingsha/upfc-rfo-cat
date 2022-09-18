@@ -1,12 +1,11 @@
 package com.naname.rfoupfccat.domain;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
 
 /**
- * сущность человека
+ * Форма для заполнения информации о человеке
  */
 @Getter
 @Setter

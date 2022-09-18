@@ -112,6 +112,11 @@ body {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
+strong {
+    font-weight: 700;
+    color: #74757f;
+}
+
 .container {
     max-width: 1200px;
     margin: auto;
@@ -1283,6 +1288,10 @@ a:hover {
     }
 }
 
+.articles__button a > div {
+    color: white;
+}
+
 .contacts {
     background-color: #f5f6fa;
 }
@@ -1609,7 +1618,7 @@ a:hover {
     margin-top: 45px;
 }
 
-.footer__callback > a {
+.footer__callback > button {
     margin-left: 0;
 }
 
@@ -1707,6 +1716,30 @@ hr {
     padding: 72px 0;
 }
 
+.forms__layout .list__marked {
+    padding: 0;
+    list-style: none;
+}
+
+.forms__layout .list__marked li {
+    margin-top: 9px;
+    display: block;
+    text-indent: -25px;
+    padding-left: 25px;
+}
+
+.forms__layout .list__marked li::before {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    left: 25px;
+    min-width: 25px;
+    content: "\f054";
+    font: 400 14px "Material Design Icons";
+    line-height: inherit;
+    color: #aeb1be;
+}
+
 .layout__content {
     padding: 72px;
 }
@@ -1750,6 +1783,13 @@ hr {
     }
 }
 
+.layout__title-big {
+    font-family: "Oswald", sans-serif;
+    font-weight: 300;
+    font-size: 48px;
+    color: #29293a;
+}
+
 .layout__subtitle h5 {
     font-size: 20px;
     font-weight: 400;
@@ -1768,7 +1808,7 @@ hr {
 }
 
 @media (max-width: 926px) {
-    .layout__buttons > button {
+    .layout__buttons > a {
         max-width: 200px;
         margin: 0 !important;
     }

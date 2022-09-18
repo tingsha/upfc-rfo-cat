@@ -7,16 +7,16 @@ import lombok.Setter;
 @Setter
 public class MemberForm extends PersonForm {
     private String address;
-    private int regionNumber = 66;
+    private String region;
     private String comment;
 
     public MemberForm() {
     }
 
-    public MemberForm(String name, String surname, String patronymic, String email, String phone, String address, int regionNumber, String comment) {
+    public MemberForm(String name, String surname, String patronymic, String email, String phone, String address, String region, String comment) {
         super(name, surname, patronymic, email, phone);
         this.address = address;
-        this.regionNumber = regionNumber;
+        this.region = region;
         this.comment = comment;
     }
 }

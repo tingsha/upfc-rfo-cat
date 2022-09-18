@@ -1,8 +1,9 @@
 package com.naname.rfoupfccat.controller;
 
+import com.naname.rfoupfccat.domain.CallbackForm;
+import com.naname.rfoupfccat.domain.FeedbackForm;
 import com.naname.rfoupfccat.domain.MemberForm;
-import com.naname.rfoupfccat.services.EmailServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.naname.rfoupfccat.services.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,21 +15,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/membership")
 public class MembershipController {
 
-    @Autowired
-    private EmailServiceImpl emailService;
+    private final EmailService emailService;
+
+    public MembershipController(EmailService emailService) {
+        this.emailService = emailService;
+    }
 
     @GetMapping
     public String getMembershipPage(Model model) {
         model.addAttribute("memberForm", new MemberForm());
+        model.addAttribute("feedbackForm", new FeedbackForm());
+        model.addAttribute("callbackForm", new CallbackForm());
         return "membership";
     }
 
-    @PostMapping("/sendForm")
+    @PostMapping
     public String sendForm(@ModelAttribute MemberForm memberForm) {
-        emailService.sendSimpleMessage(memberForm.getEmail(), "Оплата ежегодного членского взноса",
-                String.format("Имя: %s\nФамилия: %s\nОтчество: %s\nРегион: %s\nАдрес: %s\nТелефон: %s\n Комментарий: %s\n",
+        emailService.sendSimpleMessage("Оплата ежегодного членского взноса",
+                String.format("Имя: %s%nФамилия: %s%nОтчество: %s%nРегион: %s%n Email: %s%nАдрес: %s%nТелефон: %s%n Комментарий: %s%n",
                         memberForm.getName(), memberForm.getSurname(), memberForm.getPatronymic(),
-                        memberForm.getRegionNumber(), memberForm.getAddress(), memberForm.getPhone(), memberForm.getComment()));
-        return "membership";
+                        memberForm.getRegion(), memberForm.getEmail(), memberForm.getAddress(), memberForm.getPhone(), memberForm.getComment()));
+        return "success-info";
     }
 }
