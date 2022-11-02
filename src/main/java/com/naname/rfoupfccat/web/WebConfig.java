@@ -18,6 +18,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/return").setViewName("return");
         registry.addViewController("/requisites").setViewName("requisites");
         registry.addViewController("/error").setViewName("error");
+        registry.addViewController("/empty").setViewName("empty");
     }
 
     @Bean(name = "multipartResolver")
