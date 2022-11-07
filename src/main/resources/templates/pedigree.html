@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="/assets/css/style.min.css">
     <link rel="icon" href="/assets/images/logo.png">
+    <link href="https://securepayments.sberbank.ru/payment/docsite/assets/css/modal.css" rel="stylesheet">
 
     <!-- Useful meta tags -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -184,15 +185,15 @@
             <div class="layout__content d-flex justify-content-center flex-wrap">
                 <ul class="layout__subtitle list-0 w-100">
                     <li>
-                        <h5>Родословная электронная форма 400 рублей
+                        <h5>Родословная электронная форма 800 рублей
                         </h5>
                     </li>
                     <li>
-                        <h5>Родословная бумажный носитель 400 рублей
+                        <h5>Родословная бумажный носитель 800 рублей
                         </h5>
                     </li>
                     <li>
-                        <h5>Родословная полный комплект 800 рублей
+                        <h5>Родословная полный комплект 1600 рублей
                         </h5>
                     </li>
                 </ul>
@@ -287,7 +288,13 @@
                         </button>
                         <span>после отправки заполненной формы, вам необходимо оплатить целевой взнос
                             </span>
-                        <button class="button button-primary-outline button-winona m-0 ml-2">
+                        <button type="button" class="button button-primary-outline button-winona m-0 ml-2"
+                                onclick="ipayCheckout({
+                                    currency:'RUB',
+                                    order_number:'',
+                                    description: 'Целевой взнос РФО Родословная'},
+                                    function(order) { showSuccessfulPurchase(order) },
+                                    function(order) { showFailurefulPurchase(order) })">
                             <div class="content-original">
                                 оплатить
                             </div>
@@ -468,8 +475,14 @@
     </script>
     <script src="https://kit.fontawesome.com/57f46d2097.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
+    <script src="https://securepayments.sberbank.ru/payment/docsite/assets/js/ipay.js"></script>
     <script src="/assets/js/app.js"></script>
     <script>new WOW().init();</script>
+    <script type="text/javascript">
+        var ipay = new IPAY({
+            api_token : "ddrrdm7vlcvr11djnconurnto"
+        });
+    </script>
 </div>
 </body>
 

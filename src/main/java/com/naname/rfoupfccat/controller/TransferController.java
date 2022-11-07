@@ -44,6 +44,6 @@ public class TransferController {
     }
 
     public static List<PetType> getTypes() {
-        return List.of(PetType.ELECTRONIC_TRANSFER, PetType.PHYSICAL_TRANSFER, PetType.TRANSFER_FULL);
+        return List.of(PetType.TRANSFER_ELECTRONIC, PetType.TRANSFER_PHYSICAL, PetType.TRANSFER_FULL);
     }
 }

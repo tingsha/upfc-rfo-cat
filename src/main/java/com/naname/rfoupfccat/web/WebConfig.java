@@ -14,11 +14,13 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/success").setViewName("success-info");
         registry.addViewController("/personal").setViewName("personal-data");
         registry.addViewController("/payment").setViewName("payment");
+        registry.addViewController("/payment/result").setViewName("payment-result");
         registry.addViewController("/delivery").setViewName("delivery");
         registry.addViewController("/return").setViewName("return");
         registry.addViewController("/requisites").setViewName("requisites");
         registry.addViewController("/error").setViewName("error");
         registry.addViewController("/empty").setViewName("empty");
+        registry.addViewController("/technical-works").setViewName("technical-works");
     }
 
     @Bean(name = "multipartResolver")

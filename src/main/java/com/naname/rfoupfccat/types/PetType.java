@@ -4,14 +4,14 @@ import lombok.Getter;
 
 @Getter
 public enum PetType {
-    ELECTRONIC_FORM("Родословная электронная форма 400 рублей"),
-    PHYSICAL_FORM("Родословная бумажный носитель 400 рублей"),
-    ALL_FORMS("Родословная полный комплект 800 рублей"),
-    ELECTRONIC_TRANSFER("Трансфер электронная форма 350 рублей"),
-    PHYSICAL_TRANSFER("Трансфер бумажный носитель 350 рублей"),
-    TRANSFER_FULL("Трансфер полный комплект 700 рублей");
+    PEDIGREE_ELECTRONIC("Родословная электронная форма 800 рублей"),
+    PEDIGREE_PHYSICAL("Родословная бумажный носитель 800 рублей"),
+    PEDIGREE_ALL("Родословная полный комплект 1600 рублей"),
+    TRANSFER_ELECTRONIC("Трансфер электронная форма 750 рублей"),
+    TRANSFER_PHYSICAL("Трансфер бумажный носитель 750 рублей"),
+    TRANSFER_FULL("Трансфер полный комплект 1500 рублей");
 
-    private String description;
+    private final String description;
 
     PetType(String description) {
         this.description = description;

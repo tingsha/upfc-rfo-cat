@@ -44,6 +44,6 @@ public class PedigreeController {
     }
 
     public static List<PetType> getTypes() {
-        return List.of(PetType.ELECTRONIC_FORM, PetType.PHYSICAL_FORM, PetType.ALL_FORMS);
+        return List.of(PetType.PEDIGREE_ELECTRONIC, PetType.PEDIGREE_PHYSICAL, PetType.PEDIGREE_ALL);
     }
 }
