@@ -1377,8 +1377,8 @@ html:not(.lt-ie10) .not-animated {
     background-size: cover;
 }
 
-.swiper-slide > img {
-    width: 1439px !important;
+.swiper-slide img {
+    width: 100%;
 }
 
 .slide-content {
