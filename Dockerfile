@@ -3,6 +3,10 @@ ADD . /src
 WORKDIR /src
 RUN chmod +x ./mvnw
 
+FROM node:12.7-alpine AS build
+COPY frontend/package.json package-lock.json ./
+RUN npm install
+
 FROM alpine:3.10.3 as packager
 RUN apk --no-cache add openjdk11-jdk openjdk11-jmods
 ENV JAVA_MINIMAL="/opt/java-minimal"
