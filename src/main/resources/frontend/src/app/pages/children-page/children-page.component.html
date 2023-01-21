@@ -1,0 +1,202 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs__container">
+        <h1 class="breadcrumbs__title">Регистрация помета</h1>
+        <div class="breadcrumbs__path">
+            <ul class="breadcrumbs__list d-flex pl-0">
+                <li class="breadcrumb__item pl-0">
+                    <a routerLink="/">Российское Фелинологическое Общество</a>
+                </li>
+                <li class="breadcrumb__item">
+                    <a routerLink="/">РФО ОНЛАЙН</a>
+                </li>
+                <li class="breadcrumb__item active"><span>Регистрация помета</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="forms__layout">
+        <h3 class="layout__title" style="text-align: center;">Форма регистрации помета.</h3>
+        <div class="layout__content d-flex justify-content-center flex-wrap">
+            <ul class="layout__description list-0 w-100 mt-1">
+                <li class="text-danger font-weight-bold">ВАЖНО : Помет котят проходит актировку одномоментно!</li>
+                <li>Необходимо заказать карточки сразу на всех котят из помета.</li>
+                <li>"Доактировка" не допустима.</li>
+                <li>Буква помета выбирается заводчиком самостоятельно, согласно племенной книге питомника.</li>
+            </ul>
+            <ul class="layout__subtitle list-0 w-100">
+                <li><h5>Карточка котенка электронная форма 200 рублей</h5></li>
+                <li><h5>Карточка котенка бумажный носитель 200 рублей</h5></li>
+                <li><h5>Карточка котенка полный комплект 400 рублей</h5></li>
+            </ul>
+            <form class="layout__forms" [formGroup]="form" (ngSubmit)="submit()"
+                  enctype="multipart/form-data">
+                <div class="form form-gray w-100 wow fadeSlideInUp">
+                    <label>Фамилия и имя заводчика</label>
+                    <input formControlName="name" type="text"
+                        [ngClass]="name.errors && name.touched ? 'border border-danger' : ''">
+                    <span *ngIf="name.errors?.['required'] && name.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Название питомника</label>
+                        <input formControlName="nurseryName" type="text"
+                               [ngClass]="nurseryName.errors && nurseryName.touched ? 'border border-danger' : ''">
+                        <span *ngIf="nurseryName.errors?.['required'] && nurseryName.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Дата рождения помета</label>
+                        <input formControlName="birthDate" type="text" mask="00.00.0000" [showMaskTyped]="true"
+                            [ngClass]="birthDate.errors && birthDate.touched ? 'border border-danger' : ''">
+                        <span *ngIf="birthDate.errors?.['required'] && birthDate.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Первый котенок: кличка, порода, окрас, пол, микрочип (если есть)</label>
+                        <input formControlName="cat1" type="text">
+                    </div>
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Второй котенок: кличка, порода, окрас, пол, микрочип (если есть)</label>
+                        <input formControlName="cat2" type="text">
+                    </div>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Третий котенок: кличка, порода, окрас, пол, микрочип (если есть)</label>
+                        <input formControlName="cat3" type="text">
+                    </div>
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Четвертый котенок: кличка, порода, окрас, пол, микрочип (если есть)</label>
+                        <input formControlName="cat4" type="text">
+                    </div>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Пятый котенок: кличка, порода, окрас, пол, микрочип (если есть)</label>
+                        <input formControlName="cat5" type="text">
+                    </div>
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Шестой котенок: кличка, порода, окрас, пол, микрочип (если есть)</label>
+                        <input formControlName="cat6" type="text">
+                    </div>
+                </div>
+                <div class="forms__wrapper wow fadeSlideInUp">
+                    <div class="form form-gray">
+                        <label>Седьмой котенок: кличка, порода, окрас, пол, микрочип (если есть)</label>
+                        <input formControlName="cat7" type="text">
+                    </div>
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Восьмой котенок: кличка, порода, окрас, пол, микрочип (если есть)</label>
+                        <input formControlName="cat8" type="text">
+                    </div>
+                </div>
+                <div class="forms__wrapper wow fadeSlideInUp">
+                    <div class="form form-gray">
+                        <label>Девятый котенок: кличка, порода, окрас, пол, микрочип (если есть)</label>
+                        <input formControlName="cat9" type="text">
+                    </div>
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Десятый котенок: кличка, порода, окрас, пол, микрочип (если есть)</label>
+                        <input formControlName="cat10" type="text">
+                    </div>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Отец: кличка, порода, окрас</label>
+                        <input formControlName="father" type="text"
+                            [ngClass]="father.errors && father.touched ? 'border border-danger' : ''">
+                        <span *ngIf="father.errors?.['required'] && father.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Мать: кличка, порода окрас</label>
+                        <input formControlName="mother" type="text"
+                               [ngClass]="mother.errors && mother.touched ? 'border border-danger' : ''">
+                        <span *ngIf="mother.errors?.['required'] && mother.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Ваш E-mail</label>
+                        <input formControlName="email" type="text"
+                               [ngClass]="email.errors && email.touched ? 'border border-danger' : ''">
+                        <span *ngIf="email.errors?.['required'] && email.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                        <span *ngIf="email.errors?.['email'] && email.touched" class="form-validation">Электронная почта задана некорректно.</span>
+                    </div>
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Ваш Телефон</label>
+                        <input type="text" formControlName="phone" prefix="+7 " mask='(000) 000-00-00'
+                               [ngClass]="phone.errors && phone.touched ? 'border border-danger' : ''">
+                        <span *ngIf="phone.errors?.['minlength'] && phone.touched" class="form-validation">Некорректный номер.</span>
+                    </div>
+                </div>
+                <div class="form form-gray w-100 wow fadeSlideInUp">
+                    <label>Фото родословной папы.</label>
+                    <app-file-upload formControlName="fatherPedigree" [hasErrors]="fatherPedigree.errors != null && fatherPedigree.touched"
+                                     (focusout)="fatherPedigree.markAsTouched()"></app-file-upload>
+                    <span *ngIf="fatherPedigree.errors?.['required'] && fatherPedigree.touched" class="form-validation">Необходимо выбрать файл.</span>
+                </div>
+                <div class="form form-gray w-100 wow fadeSlideInUp">
+                    <label>Фото последнего титульного сертификата родословной папы, при его наличии.</label>
+                    <app-file-upload formControlName="fatherCertificate" [hasErrors]="fatherCertificate.errors != null && fatherCertificate.touched"
+                                     (focusout)="fatherCertificate.markAsTouched()"></app-file-upload>
+                    <span *ngIf="fatherCertificate.errors?.['required'] && fatherCertificate.touched" class="form-validation">Необходимо выбрать файл.</span>
+                </div>
+                <div class="form form-gray w-100 wow fadeSlideInUp">
+                    <label>Фото родословной мамы.</label>
+                    <app-file-upload formControlName="motherPedigree" [hasErrors]="motherPedigree.errors != null && motherPedigree.touched"
+                                     (focusout)="motherPedigree.markAsTouched()"></app-file-upload>
+                    <span *ngIf="motherPedigree.errors?.['required'] && motherPedigree.touched" class="form-validation">Необходимо выбрать файл.</span>
+                </div>
+                <div class="form form-gray w-100 wow fadeSlideInUp">
+                    <label>Фото последнего титульного сертификата родословной мамы, при его наличии.</label>
+                    <app-file-upload formControlName="motherCertificate" [hasErrors]="motherCertificate.errors != null && motherCertificate.touched"
+                                     (focusout)="motherCertificate.markAsTouched()"></app-file-upload>
+                    <span *ngIf="motherCertificate.errors?.['required'] && motherCertificate.touched" class="form-validation">Необходимо выбрать файл.</span>
+                </div>
+                <div class="form form-gray w-100 wow fadeSlideInUp">
+                    <label>Нажмите для выбора типа получения документов.</label>
+                    <select formControlName="type"
+                            [ngClass]="type.errors && type.touched ? 'border border-danger' : ''">
+                        <option *ngFor="let type of types" [ngValue]="type">
+                            {{ type.name }}
+                        </option>
+                    </select>
+                    <span *ngIf="type.errors?.['required'] && type.touched" class="form-validation">Необходимо выбрать тип документа.</span>
+                </div>
+                <div class="form form-gray w-100 wow fadeSlideInUp">
+                    <label>Комментарий</label>
+                    <textarea formControlName="message"></textarea>
+                </div>
+                <div class="layout__buttons w-100">
+                    <button type="submit" class="button button-primary button-primary-outline button-winona m-0 mr-2 wow slideInRight">
+                        <div class="content-original">отправить</div>
+                        <div class="content-dubbed">отправить</div>
+                    </button>
+                    <span>после отправки заполненной формы, вам необходимо оплатить целевой взнос</span>
+                    <button type="button" class="button button-primary-outline button-winona m-0 ml-2 wow slideInLeft"
+                            onclick="ipayCheckout({
+                                    currency:'RUB',
+                                    order_number:'',
+                                    description: 'Целевой взнос РФО Карточка котенка'},
+                                    function(order) { showSuccessfulPurchase(order) },
+                                    function(order) { showFailurefulPurchase(order) })">
+                        <div class="content-original">оплатить</div>
+                        <div class="content-dubbed">оплатить</div>
+                    </button>
+                </div>
+            </form>
+            <div class="layout__license w-100">
+                <ul class="list-0">
+                    <li class="layout__license-item">Отправляя форму вы соглашаетесь с
+                        <a style="text-align: center;" routerLink="/personal-data">"Политикой обработки персональных данных"</a>
+                    </li>
+                    <li class="layout__license-item"><a routerLink="/payment">Информация о "Способах оплаты"</a></li>
+                    <li class="layout__license-item"><a routerLink="/delivery">Информация о "Доставке"</a></li>
+                    <li class="layout__license-item"><a routerLink="/return">Информация о "Возврате"</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<app-feedback-form></app-feedback-form>

@@ -1,0 +1,214 @@
+.footer {
+    color: #aeb1be;
+    background-color: #15191f;
+    padding-top: 80px;
+    padding-bottom: 30px;
+
+    @include breakpoint($tablet-bp) {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+}
+
+.footer__wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+
+    @include breakpoint($tablet-bp) {
+        flex-wrap: wrap;
+        max-width: 720px;
+        justify-content: unset;
+    }
+
+    @include breakpoint(760px) {
+        max-width: 540px;
+    }
+}
+
+.footer__column {
+    width: 33%;
+    padding: 0px 20px;
+
+    @include breakpoint($tablet-bp) {
+        width: 50%;
+
+        &:nth-child(1) {
+            width: 100%;
+
+            h4 {
+                margin-top: 0;
+            }
+        }
+    }
+
+    @include breakpoint($mobile-bp) {
+        width: 100%;
+    }
+}
+
+.footer__right {
+    @include breakpoint($tablet-bp) {
+        width: 60%;
+    }
+
+    @include breakpoint($mobile-bp) {
+        width: 100%;
+    }
+}
+
+.footer__middle {
+    @include breakpoint($tablet-bp) {
+        width: 40%;
+    }
+
+    @include breakpoint($mobile-bp) {
+        width: 100%;
+    }
+}
+
+.column__title {
+    color: white;
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+
+    @include breakpoint($tablet-bp) {
+        font-size: 18px;
+        letter-spacing: 0;
+        margin-top: 50px;
+    }
+}
+
+.column__content {
+    margin-top: 35px;
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+
+    @include breakpoint($tablet-bp) {
+        margin-top: 14px;
+        width: 100%;
+    }
+}
+
+.column__wrapper {
+    div {
+        margin-top: 10px;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+
+        &:nth-child(1) {
+            padding-right: 15px;
+        }
+
+        &:nth-child(2) {
+            padding-left: 15px;
+        }
+
+        @include breakpoint(760px) {
+            width: 100%;
+            padding: 0 !important;
+        }
+    }
+
+    @include breakpoint(760px) {
+        flex-wrap: wrap;
+    }
+}
+
+.contact__icon {
+    > a {
+        color: #aeb1be;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+.footer__callback {
+    margin-top: 45px;
+
+    > button {
+        margin-left: 0;
+    }
+
+    @include breakpoint($tablet-bp) {
+        margin-top: 20px;
+    }
+
+    @include breakpoint($mobile-bp) {
+        text-align: center;
+    }
+}
+
+.form-label-outside {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.footer__line {
+    max-width: 1200px;
+    margin: auto;
+
+    @include breakpoint($tablet-bp) {
+        flex-wrap: wrap;
+        max-width: 720px;
+    }
+
+    @include breakpoint(760px) {
+        max-width: 540px;
+    }
+}
+
+hr {
+    margin-top: 60px !important;
+    margin: 0 20px;
+    border-top: 1px solid #e8e9ee !important;
+    border-top-color: #74757f !important;
+}
+
+.footer__rights {
+    color: #74757f !important;
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+
+    > .rights {
+        margin-bottom: 0;
+        padding: 0 15px;
+
+        > a {
+            color: #74757f !important;
+        }
+
+        @include breakpoint($tablet-bp) {
+            margin-top: 18px;
+        }
+    }
+}
+
+.footer__copyrights {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @include breakpoint($tablet-bp) {
+        justify-content: unset;
+
+        * {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

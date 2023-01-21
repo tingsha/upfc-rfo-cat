@@ -1,0 +1,168 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs__container">
+        <h1 class="breadcrumbs__title">Школа фелинологов</h1>
+        <div class="breadcrumbs__path">
+            <ul class="breadcrumbs__list d-flex pl-0">
+                <li class="breadcrumb__item pl-0">
+                    <a routerLink="/">Российское Фелинологическое Общество</a>
+                </li>
+                <li class="breadcrumb__item">
+                    <a routerLink="/">РФО ОНЛАЙН</a>
+                </li>
+                <li class="breadcrumb__item active"><span>Школа фелинологов</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="forms__layout">
+        <h3 class="layout__title" style="text-align: center;">Заполните форму для зачисления на обучение по
+            программе "Школа фелинологов"</h3>
+        <div class="layout__content d-flex justify-content-center flex-wrap">
+            <form class="layout__forms" [formGroup]="schoolForm" (ngSubmit)="schoolSubmit()">
+                <div class="forms__wrapper">
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Фамилия</label>
+                        <input type="text" formControlName="surname"
+                               [ngClass]="surname.errors && surname.touched ? 'border border-danger' : ''">
+                        <span *ngIf="surname.errors?.['required'] && surname.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Имя</label>
+                        <input type="text" formControlName="name"
+                               [ngClass]="name.errors && name.touched ? 'border border-danger' : ''">
+                        <span *ngIf="name.errors?.['required'] && name.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Отчество</label>
+                        <input type="text" formControlName="patronymic">
+                    </div>
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Порода, которой занимаюсь</label>
+                        <input type="text" formControlName="breed"
+                               [ngClass]="breed.errors && breed.touched ? 'border border-danger' : ''">
+                        <span *ngIf="breed.errors?.['required'] && breed.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Общий стаж разведения</label>
+                        <input type="text" formControlName="experience"
+                               [ngClass]="experience.errors && experience.touched ? 'border border-danger' : ''">
+                        <span *ngIf="experience.errors?.['required'] && experience.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Ваш E-mail</label>
+                        <input formControlName="email" type="text"
+                               [ngClass]="schoolEmail.errors && schoolEmail.touched ? 'border border-danger' : ''">
+                        <span *ngIf="schoolEmail.errors?.['required'] && schoolEmail.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                        <span *ngIf="schoolEmail.errors?.['email'] && schoolEmail.touched" class="form-validation">Электронная почта задана некорректно.</span>
+                    </div>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Ваш Телефон</label>
+                        <input type="text" formControlName="phone" prefix="+7 " mask='(000) 000-00-00'
+                               [ngClass]="phone.errors && phone.touched ? 'border border-danger' : ''">
+                        <span *ngIf="phone.errors?.['minlength'] && phone.touched" class="form-validation">Некорректный номер.</span>
+                    </div>
+                </div>
+                <div class="form form-gray w-100 wow fadeSlideInUp">
+                    <label>Пройдены курсы фелинолога (при их наличии) и другие комментарии</label>
+                    <textarea formControlName="message"></textarea>
+                </div>
+                <div class="layout__buttons w-100">
+                    <button type="submit" class="button button-primary button-primary-outline button-winona m-0 mr-2 wow slideInRight">
+                        <div class="content-original">отправить</div>
+                        <div class="content-dubbed">отправить</div>
+                    </button>
+                    <span>после отправки заполненной формы, вам необходимо оплатить целевой взнос</span>
+                    <button type="button" class="button button-primary-outline button-winona m-0 ml-2 wow slideInLeft"
+                            onclick="ipayCheckout({
+                                    currency:'RUB',
+                                    order_number:'',
+                                    description: 'Целевой взнос за Школа фелинологов'},
+                                    function(order) { showSuccessfulPurchase(order) },
+                                    function(order) { showFailurefulPurchase(order) })">
+                        <div class="content-original">оплатить</div>
+                        <div class="content-dubbed">оплатить</div>
+                    </button>
+                </div>
+                <div class="w-100">
+                    <ul class="list-0 text-center">
+                        <li class="layout__license-item">Отправляя форму вы соглашаетесь с
+                            <a style="text-align: center;" routerLink="/personal-data">"Политикой обработки персональных данных"</a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="forms__layout pt-0">
+        <h3 class="layout__title" style="text-align: center;">Регистрация сертификата фелинолога в реестре «ЕВРД» с
+            выдачей бумажного носителя</h3>
+        <div class="layout__content d-flex justify-content-center flex-wrap">
+            <ul class="layout__subtitle list-0 w-100">
+                <li><h5>Стоимость: 400 рублей</h5></li>
+            </ul>
+            <form class="layout__forms" [formGroup]="certificateForm" (ngSubmit)="certificateSubmit()"
+                  enctype="multipart/form-data">
+                <div class="forms__wrapper">
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Ваш E-mail</label>
+                        <input formControlName="email" type="text"
+                               [ngClass]="certificateEmail.errors && certificateEmail.touched ? 'border border-danger' : ''">
+                        <span *ngIf="certificateEmail.errors?.['required'] && certificateEmail.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                        <span *ngIf="certificateEmail.errors?.['email'] && certificateEmail.touched" class="form-validation">Электронная почта задана некорректно.</span>
+                    </div>
+                    <div class="form form-gray wow fadeSlideInUp">
+                        <label>Ваш Телефон</label>
+                        <input type="text" formControlName="phone" prefix="+7 " mask='(000) 000-00-00'
+                               [ngClass]="phone.errors && phone.touched ? 'border border-danger' : ''">
+                        <span *ngIf="phone.errors?.['minlength'] && phone.touched" class="form-validation">Некорректный номер.</span>
+                    </div>
+                </div>
+                <div class="form form-gray w-100 wow fadeSlideInUp">
+                    <label>Прикрепить фото сертификата</label>
+                    <app-file-upload formControlName="photo" [hasErrors]="photo.errors != null && photo.touched"
+                                     (focusout)="photo.markAsTouched()"></app-file-upload>
+                    <span *ngIf="photo.errors?.['required'] && photo.touched" class="form-validation">Необходимо выбрать файл.</span>
+                </div>
+                <div class="form form-gray w-100 wow fadeSlideInUp">
+                    <label>Комментарий</label>
+                    <textarea formControlName="message"></textarea>
+                </div>
+                <div class="layout__buttons w-100">
+                    <button type="submit" class="button button-primary button-primary-outline button-winona m-0 mr-2 wow slideInRight">
+                        <div class="content-original">отправить</div>
+                        <div class="content-dubbed">отправить</div>
+                    </button>
+                    <span>после отправки заполненной формы, вам необходимо оплатить целевой взнос</span>
+                    <button type="button" class="button button-primary-outline button-winona m-0 ml-2 wow slideInLeft"
+                            onclick="ipayCheckout({
+                                    currency:'RUB',
+                                    order_number:'',
+                                    description: 'Целевой взнос РФО Регистрация сертификата фелинолога'},
+                                    function(order) { showSuccessfulPurchase(order) },
+                                    function(order) { showFailurefulPurchase(order) })">
+                        <div class="content-original">оплатить</div>
+                        <div class="content-dubbed">оплатить</div>
+                    </button>
+                </div>
+            </form>
+            <div class="layout__license w-100">
+                <ul class="list-0">
+                    <li class="layout__license-item">Отправляя форму вы соглашаетесь с
+                        <a style="text-align: center;" routerLink="/personal-data">"Политикой обработки персональных данных"</a>
+                    </li>
+                    <li class="layout__license-item"><a routerLink="/payment">Информация о "Способах оплаты"</a></li>
+                    <li class="layout__license-item"><a routerLink="/delivery">Информация о "Доставке"</a></li>
+                    <li class="layout__license-item"><a routerLink="/return">Информация о "Возврате"</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<app-feedback-form></app-feedback-form>

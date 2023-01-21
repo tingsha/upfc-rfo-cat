@@ -1,0 +1,108 @@
+.breadcrumbs {
+    background: url(/assets/images/bg.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.breadcrumbs__container {
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 40px;
+
+    @include breakpoint(1200px) {
+        max-width: 960px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    @include breakpoint(992px) {
+        max-width: 720px;
+    }
+
+    @include breakpoint(768px) {
+        max-width: 540px;
+    }
+
+    @include breakpoint(576px) {
+        width: 100%;
+    }
+}
+
+.breadcrumbs__path {
+    margin-top: 30px;
+}
+
+.breadcrumbs__list {
+    position: relative;
+    display: flex;
+    vertical-align: middle;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-decoration: none;
+
+    @include breakpoint(768px) {
+        flex-wrap: wrap;
+    }
+}
+
+.breadcrumbs__title {
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 58px;
+    font-weight: 400;
+
+    @include breakpoint(1200px) {
+        font-size: 54px;
+    }
+
+    @include breakpoint(992px) {
+        font-size: 46px;
+    }
+
+    @include breakpoint(768px) {
+        font-size: 32px;
+    }
+
+    @include breakpoint(576px) {
+        font-size: 30px;
+    }
+}
+
+.breadcrumb__item {
+    color: #74757f;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    &.active {
+        color: #204995;
+    }
+
+    > a {
+        color: #74757f;
+    }
+
+    &:nth-last-child(1) {
+        &::after {
+            content: "";
+        }
+    }
+
+    &::after {
+        content: "\f054";
+        font-family: "FontAwesome";
+        position: absolute;
+        top: 51%;
+        right: -5px;
+        display: inline-block;
+        font-size: 10px;
+        font-style: normal;
+        color: inherit;
+        transform: translate3d(0, -50%, 0);
+    }
+}

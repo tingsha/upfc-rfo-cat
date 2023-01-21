@@ -1,0 +1,122 @@
+.forms__layout {
+    padding: 72px 0;
+
+    .list__marked {
+        padding: 0;
+        list-style: none;
+
+        li {
+            margin-top: 9px;
+            display: block;
+            text-indent: -25px;
+            padding-left: 25px;
+
+            &::before {
+                position: relative;
+                top: 1px;
+                display: inline-block;
+                left: 25px;
+                min-width: 25px;
+                content: '\f054';
+                font: 400 14px "Material Design Icons";
+                line-height: inherit;
+                color: #aeb1be;
+            }
+        }
+    }
+}
+
+.layout__content {
+    padding: 72px;
+
+    @include breakpoint(1200px) {
+        padding: 32px 0;
+    }
+}
+
+.layout__forms {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.layout__description {
+    padding: 0 15px;
+    font-size: 14px;
+    font-weight: 300;
+
+    > li > a {
+        color: #204995;
+    }
+}
+
+.layout__title {
+    font-size: 36px;
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+
+    @include breakpoint(1200px) {
+        font-size: 30px;
+    }
+
+    @include breakpoint(768px) {
+        font-size: 24px;
+    }
+
+    &-big {
+        font-family: "Oswald", sans-serif;
+        font-weight: 300;
+        font-size: 48px;
+        color: #29293a;
+    }
+}
+
+.layout__subtitle {
+    h5 {
+        font-size: 20px;
+        font-weight: 400;
+        padding: 0 15px;
+    }
+}
+
+.layout__buttons {
+    margin-top: 45px;
+    margin-left: 15px;
+
+    > span {
+        font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+    }
+
+    > a {
+        @include breakpoint(926px) {
+            max-width: 200px;
+            margin: 0 !important;
+        }
+    }
+
+    @include breakpoint(926px) {
+        display: grid;
+        row-gap: 10px;
+        margin: 10px;
+    }
+}
+
+.layout__license {
+    margin-left: 15px;
+}
+
+.layout__license-item {
+    margin-top: 20px;
+
+    a {
+        color: black;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            color: #790420;
+        }
+    }
+}

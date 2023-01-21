@@ -1,0 +1,628 @@
+@import "../../../assets/scss/_mixins.scss";
+@import "../../../assets/scss/_vars.scss";
+
+/** Slider */
+.swiper-slide-qr {
+    display: inline-block;
+    width: 100%;
+    background-size: cover;
+}
+
+.swiper-slide {
+    img {
+        width: 100%;
+    }
+}
+
+.slide-content {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    width: 100%;
+    padding: 0 15px;
+    color: white;
+
+    @include breakpoint($mobile-bp) {
+        padding: 0;
+        left: 5%;
+    }
+}
+
+.slide-holder {
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+
+    > h6 {
+        font-weight: 400;
+
+        @include breakpoint(768px) {
+            font-size: 14px;
+        }
+    }
+}
+
+.slide-title {
+    margin-top: 10px;
+
+    font-weight: 700;
+    font-size: 58px;
+
+    @include breakpoint($tablet-bp) {
+        font-size: 46px;
+    }
+
+    @include breakpoint(768px) {
+        font-size: 30px;
+    }
+}
+
+.slider-button {
+    margin-top: 60px;
+
+    > a,
+    button {
+        margin-left: 0;
+    }
+}
+
+.change-buttons {
+    display: flex;
+    position: absolute;
+    left: 10%;
+    bottom: 10%;
+
+    @include breakpoint($mobile-bp) {
+        bottom: 20%;
+    }
+}
+
+.swiper-button-prev {
+    position: relative;
+    font-size: 38px;
+    color: white;
+
+    &::after {
+        content: "\f054";
+        font-family: "Material Design Icons";
+        transform: rotate(180deg);
+    }
+
+    &:hover {
+        color: #204995 !important;
+    }
+}
+
+.swiper-button-next {
+    position: relative;
+    font-size: 38px;
+    margin-left: 40px;
+    color: white;
+
+    &::after {
+        content: "\f054";
+        font-family: "Material Design Icons";
+    }
+
+    &:hover {
+        color: #204995 !important;
+    }
+}
+
+.slide-text {
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    max-width: 420px;
+    font-weight: 300;
+    color: #aeb1be;
+    margin-top: 20px;
+    padding-left: 35px;
+    border-left: 2px solid #204995;
+
+    @include breakpoint($mobile-bp) {
+        padding-left: 10px;
+    }
+}
+
+/* News */
+.news {
+    background-color: #f5f6fa;
+}
+
+.news__wrapper {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    > a {
+        margin-left: 0;
+        margin-top: 70px;
+
+        @include breakpoint($tablet-bp) {
+            margin-top: 34px;
+        }
+
+        @include breakpoint($mobile-bp) {
+            margin-top: 25px;
+        }
+    }
+}
+
+.news__title {
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 36px;
+    margin-bottom: 0;
+
+    @include breakpoint($tablet-bp) {
+        font-size: 30px;
+    }
+
+    @include breakpoint($mobile-bp) {
+        font-size: 24px;
+    }
+}
+
+/* Benefits */
+.benefits__wrapper {
+    text-align: center;
+    margin: auto;
+    max-width: 1200px;
+    padding: 0 15px;
+}
+
+.common__title {
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 400;
+
+    @include breakpoint($tablet-bp) {
+        font-size: 30px;
+    }
+
+    @include breakpoint($mobile-bp) {
+        font-size: 24px;
+    }
+}
+
+.common__subtitle {
+    margin-top: 30px;
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.benefits__inner {
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: left;
+    justify-content: space-between;
+    padding: 120px 50px;
+
+    @include breakpoint($tablet-bp) {
+        flex-wrap: wrap;
+        padding: 60px 30px;
+    }
+
+    @include breakpoint($mobile-bp) {
+        max-width: 360px;
+        margin: auto;
+        padding: 0;
+    }
+}
+
+.description__title {
+    color: #29293a;
+    letter-spacing: normal;
+    margin-top: 10px;
+
+    > h4 {
+        font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+
+        @include breakpoint($tablet-bp) {
+            font-size: 18px;
+        }
+    }
+}
+
+.benefits__description {
+    width: 33%;
+    padding: 0 15px;
+
+    @include breakpoint($tablet-bp) {
+        width: 50%;
+    }
+
+    @include breakpoint($mobile-bp) {
+        margin-top: 20px;
+        width: 100%;
+
+        &:nth-child(1) {
+            margin-top: 50px;
+        }
+    }
+}
+
+.description__text {
+    margin-top: 16px;
+
+    > ul > li {
+        font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+    }
+}
+
+/* Education */
+.education {
+    padding: 120px 0;
+    background-color: #f5f6fa;
+
+    @include breakpoint($tablet-bp) {
+        padding: 50px 0;
+    }
+}
+
+.education__wrapper {
+    text-align: center;
+    margin: auto;
+    max-width: 1200px;
+
+    @include breakpoint($tablet-bp) {
+        max-width: 540px;
+    }
+}
+
+.education__content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 40px;
+
+    @include breakpoint($tablet-bp) {
+        .education__image {
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform: none;
+            object-fit: cover;
+            object-position: center center;
+        }
+    }
+}
+
+.education__item {
+    display: flex;
+    width: 100%;
+    margin-top: 38px;
+    align-items: center;
+    text-align: left;
+}
+
+.education__inner {
+    padding: 0 15px;
+
+    @include breakpoint($tablet-bp) {
+        margin-top: 50px;
+    }
+}
+
+.item__text {
+    margin-left: 36px;
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #204995;
+
+    &:hover {
+        color: #37020e;
+    }
+
+    @include breakpoint(1120px) {
+        font-size: 18px;
+        letter-spacing: 0;
+        margin-left: 18px;
+    }
+}
+
+/* Rfo */
+.rfo {
+    padding: 160px 0;
+    display: block;
+    color: white;
+    background-size: cover;
+    background: url(/assets/images/bottom_banner.jpg) no-repeat center center;
+
+    @include breakpoint($mobile-bp) {
+        padding: 50px 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url(/assets/images/bottom_banner.jpg) center no-repeat;
+    }
+
+    @include breakpoint($tablet-bp) {
+        padding: 80px 0;
+    }
+}
+
+.rfo__wrapper {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.rfo__content {
+    padding: 0 30px;
+
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    > h5,
+    h4 {
+        margin-top: 15px;
+        font-weight: 400;
+    }
+
+    @include breakpoint($mobile-bp) {
+        padding: 0 15px;
+
+        h5 {
+            font-size: 16px;
+        }
+
+        h4 {
+            font-size: 18px;
+        }
+
+        h3 {
+            font-size: 24px;
+        }
+    }
+}
+
+/* Achievements */
+.achievements {
+    padding: 120px 0;
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+
+    @include breakpoint($tablet-bp) {
+        padding: 60px 0;
+    }
+}
+
+.achievements__inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+    display: flex;
+
+    @include breakpoint($tablet-bp) {
+        flex-wrap: wrap;
+        max-width: 720px;
+        margin: auto;
+    }
+}
+
+.achievements__left {
+    width: 55%;
+
+    @include breakpoint($tablet-bp) {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+        object-fit: cover;
+        object-position: center center
+    }
+}
+
+.achievements__right {
+    width: 45%;
+    margin: auto;
+
+    @include breakpoint($tablet-bp) {
+        width: 100%;
+    }
+}
+
+.achievements__title {
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 30px;
+
+    @include breakpoint($tablet-bp) {
+        margin-top: 50px;
+        font-size: 30px;
+    }
+
+    @include breakpoint($mobile-bp) {
+        font-size: 24px;
+    }
+}
+
+.achievements__text {
+    padding: 0 15px;
+}
+
+/* Articles */
+.articles {
+    background-color: #f5f6fa;
+    padding: 72px 0;
+    text-align: center;
+}
+
+.articles__button {
+    margin-top: 70px;
+
+    @include breakpoint($tablet-bp) {
+        margin-top: 35px;
+    }
+
+    @include breakpoint($mobile-bp) {
+        margin-top: 25px;
+    }
+
+    a > div {
+        color: white;
+    }
+}
+
+/* Contacts */
+.contacts {
+    background-color: #f5f6fa;
+}
+
+.contacts__title {
+    font-size: 36px;
+    font-weight: 400;
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+    padding-left: 15px;
+}
+
+.contacts__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint(1100px) {
+        flex-wrap: wrap;
+    }
+}
+
+.contacts__right {
+    width: 50%;
+    margin-right: 1px;
+
+    @include breakpoint(1100px) {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+    }
+}
+
+.contacts__left {
+    width: 50%;
+    display: block;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 72px;
+    padding: 0 15px;
+
+    @include breakpoint(1100px) {
+        width: 100%;
+    }
+}
+
+.contacts__buttons {
+    margin-top: 45px;
+    margin-bottom: 15px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > a {
+        margin: 0;
+    }
+
+    > span {
+        font-size: 14px;
+        font-weight: 300;
+    }
+
+    @include breakpoint($mobile-bp) {
+        display: grid;
+        row-gap: 15px;
+        text-align: center;
+        justify-content: unset;
+        margin: auto;
+    }
+}
+
+.map {
+    height: 100%;
+
+    @include breakpoint(1100px) {
+        min-height: 500px;
+    }
+}
+
+.big-icon {
+    font-size: 1.55rem;
+    color: #204995;
+}
+
+.content-dubbed > .mdi-whatsapp {
+    color: white;
+}
+
+.contacts__policy {
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding-left: 15px;
+
+    > a {
+        color: black;
+
+        &:hover {
+            text-decoration: none;
+            color: #790420;
+        }
+    }
+
+    @include breakpoint($mobile-bp) {
+        display: block;
+        margin-top: 15px;
+    }
+}
+
+.purple__contacts {
+    background-color: #29293a;
+
+    color: #aeb1be;
+
+    h3 {
+        color: white;
+    }
+
+    .contacts__left {
+        padding: 72px 0;
+    }
+
+    a {
+        color: #aeb1be;
+    }
+
+    .form {
+        padding-left: 15px;
+        padding-right: 20px;
+    }
+
+    .contacts__buttons {
+        padding-left: 15px;
+        padding-right: 20px;
+    }
+}
+
+.white {
+    color: white;
+}
+
+.white-hover {
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        color: white !important;
+    }
+}

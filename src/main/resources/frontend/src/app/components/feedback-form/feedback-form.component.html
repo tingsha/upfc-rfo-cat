@@ -1,0 +1,56 @@
+<section class="contacts purple__contacts">
+    <div class="contacts__wrapper">
+        <div class="contacts__left pb-0">
+            <h3 class="contacts__title wow slideInDown">Написать нам</h3>
+            <form [formGroup]="feedbackForm" (ngSubmit)="submit()" class="forms">
+                <div class="forms__wrapper">
+                    <div class="form wow fadeSlideInUp">
+                        <label>Имя</label>
+                        <input formControlName="name" type="text" [ngClass]="name.errors && name.touched ? 'border border-danger' : ''">
+                        <span *ngIf="name.errors?.['required'] && name.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form wow fadeSlideInUp">
+                        <label>Ваш Телефон</label>
+                        <input type="text" formControlName="phone" prefix="+7 " mask='(000) 000-00-00'
+                               [ngClass]="phone.errors && phone.touched ? 'border border-danger' : ''">
+                        <span *ngIf="phone.errors?.['minlength'] && phone.touched" class="form-validation">Некорректный номер.</span>
+                    </div>
+                </div>
+                <div class="form w-100 wow fadeSlideInUp">
+                    <label>Ваш E-mail</label>
+                    <input formControlName="email" type="text" [ngClass]="email.errors && email.touched ? 'border border-danger' : ''">
+                    <span *ngIf="email.errors?.['required'] && email.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    <span *ngIf="email.errors?.['email'] && email.touched" class="form-validation">Электронная почта задана некорректно.</span>
+                </div>
+                <div class="form w-100 wow fadeSlideInUp">
+                    <label>Ваше сообщение</label>
+                    <textarea formControlName="message" [ngClass]="message.errors && message.touched ? 'border border-danger' : ''"></textarea>
+                    <span *ngIf="message.errors?.['required'] && message.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                </div>
+                <div class="contacts__buttons">
+                    <button type="submit" class="button button-primary button-primary-outline button-winona m-0 wow slideInRight">
+                        <div class="content-original white">отправить</div>
+                        <div class="content-dubbed">отправить</div>
+                    </button>
+                    <span>или использовать</span>
+                    <a class="button button-primary-outline button-winona wow slideInLeft"
+                       href="https://api.whatsapp.com/send?phone=79089037937" target="_blank">
+                        <div class="content-original">
+                            <span class="icon novi-icon mdi mdi-whatsapp big-icon"></span>
+                            <span>WHATSAPP</span>
+                        </div>
+                        <div class="content-dubbed">
+                            <span class="icon novi-icon mdi mdi-whatsapp big-icon"></span>
+                            <span class="white">WHATSAPP</span>
+                        </div>
+                    </a>
+                </div>
+            </form>
+            <span class="contacts__policy">
+                Отправляя форму вы соглашаетесь с <a routerLink="/personal-data" class="white-hover">"Политикой обработки персональных данных"</a>
+            </span>
+        </div>
+        <div class="contacts__footer">
+        </div>
+    </div>
+</section>

@@ -1,0 +1,153 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs__container">
+        <h1 class="breadcrumbs__title">Регистрация питомника</h1>
+        <div class="breadcrumbs__path">
+            <ul class="breadcrumbs__list d-flex pl-0">
+                <li class="breadcrumb__item pl-0">
+                    <a routerLink="/">Российское Фелинологическое Общество</a>
+                </li>
+                <li class="breadcrumb__item">
+                    <a routerLink="/">РФО ОНЛАЙН</a>
+                </li>
+                <li class="breadcrumb__item active"><span>Регистрация питомника</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="forms__layout">
+        <h3 class="layout__title" style="text-align: center;">Форма регистрации питомника.</h3>
+        <div class="layout__content d-flex justify-content-center flex-wrap">
+            <ul class="layout__subtitle list-0 w-100">
+                <li><h5>Регистрация названия питомника, зарегистрированного в другой системе - 1000 рублей</h5></li>
+                <li><h5>Регистрация нового названия питомника - 1400 рублей</h5></li>
+                <li><h5>Выдача удостоверения для члена коллективного питомника - 350 рублей</h5></li>
+            </ul>
+            <ul class="layout__description list-0 w-100 mt-3">
+                <li>Все виды оформления предусматривают получение электронной формы документа и бумажного носителя.</li>
+            </ul>
+            <form class="layout__forms" [formGroup]="form" (ngSubmit)="submit()" enctype="multipart/form-data">
+                <div class="forms__wrapper">
+                    <div class="form form-gray">
+                        <label>Фамилия</label>
+                        <input type="text" formControlName="surname"
+                               [ngClass]="surname.errors && surname.touched ? 'border border-danger' : ''">
+                        <span *ngIf="surname.errors?.['required'] && surname.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form form-gray">
+                        <label>Имя</label>
+                        <input type="text" formControlName="name"
+                               [ngClass]="name.errors && name.touched ? 'border border-danger' : ''">
+                        <span *ngIf="name.errors?.['required'] && name.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                </div>
+                <div class="form form-gray w-100">
+                    <label>Адрес:(адрес местожительства с индексом)</label>
+                    <input type="text" formControlName="address"
+                           [ngClass]="address.errors && address.touched ? 'border border-danger' : ''">
+                    <span *ngIf="address.errors?.['required'] && address.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray">
+                        <label>Первый вариант названия на русском</label>
+                        <input type="text" formControlName="nameRu1"
+                               [ngClass]="nameRu1.errors && nameRu1.touched ? 'border border-danger' : ''">
+                        <span *ngIf="nameRu1.errors?.['required'] && nameRu1.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form form-gray">
+                        <label>Первый вариант названия на английском</label>
+                        <input type="text" formControlName="nameEn1">
+                    </div>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray">
+                        <label>Второй вариант названия на русском</label>
+                        <input type="text" formControlName="nameRu2"
+                               [ngClass]="nameRu2.errors && nameRu2.touched ? 'border border-danger' : ''">
+                        <span *ngIf="nameRu2.errors?.['required'] && nameRu2.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form form-gray">
+                        <label>Второй вариант названия на английском</label>
+                        <input type="text" formControlName="nameEn2">
+                    </div>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray">
+                        <label>Третий вариант названия на русском</label>
+                        <input type="text" formControlName="nameRu3"
+                               [ngClass]="nameRu3.errors && nameRu3.touched ? 'border border-danger' : ''">
+                        <span *ngIf="nameRu3.errors?.['required'] && nameRu3.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form form-gray">
+                        <label>Третий вариант названия на английском</label>
+                        <input type="text" formControlName="nameEn3">
+                    </div>
+                </div>
+                <div class="form form-gray w-100">
+                    <label>Прикрепить фото документа</label>
+                    <app-file-upload formControlName="document"
+                                     [hasErrors]="document.errors != null && document.touched"
+                                     (focusout)="document.markAsTouched()"></app-file-upload>
+                    <span *ngIf="document.errors?.['required'] && document.touched" class="form-validation">Необходимо выбрать файл.</span>
+                </div>
+                <div class="forms__wrapper">
+                    <div class="form form-gray">
+                        <label>Ваш E-mail</label>
+                        <input formControlName="email" type="text"
+                               [ngClass]="email.errors && email.touched ? 'border border-danger' : ''">
+                        <span *ngIf="email.errors?.['required'] && email.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                        <span *ngIf="email.errors?.['email'] && email.touched" class="form-validation">Электронная почта задана некорректно.</span>
+                    </div>
+                    <div class="form form-gray">
+                        <label>Ваш Телефон</label>
+                        <input type="text" formControlName="phone" prefix="+7 " mask='(000) 000-00-00'
+                               [ngClass]="phone.errors && phone.touched ? 'border border-danger' : ''">
+                        <span *ngIf="phone.errors?.['minlength'] && phone.touched" class="form-validation">Некорректный номер.</span>
+                    </div>
+                </div>
+                <div class="form form-gray w-100">
+                    <label>Нажмите для выбора типа получения документов.</label>
+                    <select formControlName="type"
+                            [ngClass]="type.errors && type.touched ? 'border border-danger' : ''">
+                        <option *ngFor="let type of types" [ngValue]="type">
+                            {{ type.name }}
+                        </option>
+                    </select>
+                    <span *ngIf="type.errors?.['required'] && type.touched" class="form-validation">Необходимо выбрать тип документа.</span>
+                </div>
+                <div class="form form-gray w-100">
+                    <label>Комментарий</label>
+                    <textarea formControlName="message"></textarea>
+                </div>
+                <div class="layout__buttons w-100">
+                    <button type="submit" class="button button-primary button-primary-outline button-winona m-0 mr-2">
+                        <div class="content-original">отправить</div>
+                        <div class="content-dubbed">отправить</div>
+                    </button>
+                    <span>после отправки заполненной формы, вам необходимо оплатить целевой взнос</span>
+                    <button type="button" class="button button-primary-outline button-winona m-0 ml-2"
+                            onclick="ipayCheckout({
+                                    currency:'RUB',
+                                    order_number:'',
+                                    description: 'Целевой взнос РФО Регистрация питомника'},
+                                    function(order) { showSuccessfulPurchase(order) },
+                                    function(order) { showFailurefulPurchase(order) })">
+                        <div class="content-original">оплатить</div>
+                        <div class="content-dubbed">оплатить</div>
+                    </button>
+                </div>
+            </form>
+            <div class="layout__license w-100">
+                <ul class="list-0">
+                    <li class="layout__license-item">Отправляя форму вы соглашаетесь с
+                        <a style="text-align: center;" routerLink="/personal-data">"Политикой обработки персональных данных"</a>
+                    </li>
+                    <li class="layout__license-item"><a routerLink="/payment">Информация о "Способах оплаты"</a></li>
+                    <li class="layout__license-item"><a routerLink="/delivery">Информация о "Доставке"</a></li>
+                    <li class="layout__license-item"><a routerLink="/return">Информация о "Возврате"</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<app-feedback-form></app-feedback-form>

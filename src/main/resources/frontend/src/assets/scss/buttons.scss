@@ -1,0 +1,92 @@
+.button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 14px 35px;
+    font-size: 14px;
+    line-height: 1.25;
+    border: 1px solid;
+    border-radius: 6px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+    user-select: none;
+    transition: 0.25s cubic-bezier(0.2, 1, 0.3, 1);
+
+    @include breakpoint($mobile-bp) {
+        padding: 14px 35px !important;
+    }
+}
+
+.button-winona {
+    margin-left: 30px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+
+    @include breakpoint(1100px) {
+        margin-left: 10px;
+    }
+}
+
+.button-lg {
+    padding: 14px 55px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.button-primary:hover {
+    color: #fff;
+    background-color: #04408b;
+    border-color: #04408b;
+}
+
+.button-primary-outline {
+    color: #29293a;
+    background-color: transparent;
+    border-color: #204995;
+}
+
+.button-primary, .button-primary-outline:hover {
+    color: #fff;
+    background-color: #204995;
+    border-color: #204995;
+}
+
+.button-winona .content-original,
+.button-winona .content-dubbed {
+    vertical-align: middle;
+    transition: transform 0.3s cubic-bezier(0.2, 1, 0.3, 1),
+    opacity 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.button-winona .content-original {
+    display: block;
+}
+
+.button-winona .content-dubbed {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+}
+
+.button-winona:hover .content-original {
+    opacity: 0;
+    transform: translate3d(0, -30%, 0);
+}
+
+.button-winona:hover .content-dubbed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) translateY(-50%);
+}

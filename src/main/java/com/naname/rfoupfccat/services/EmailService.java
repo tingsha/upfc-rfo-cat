@@ -2,6 +2,7 @@ package com.naname.rfoupfccat.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.lang.Nullable;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -26,8 +27,7 @@ public class EmailService {
         this.emailSender = emailSender;
     }
 
-    @Async
-    public void sendSimpleMessage(String subject, String text) {
+    private void sendSimpleMessage(String subject, String text) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(SEND_FROM_EMAIL);
         message.setTo(SEND_TO_EMAIL);
@@ -37,7 +37,11 @@ public class EmailService {
     }
 
     @Async
-    public void sendEmailWithFiles(String subject, String text, MultipartFile... files) {
+    public void sendEmailWithFiles(String subject, String text, @Nullable MultipartFile... files) {
+        if (files == null || files.length == 0) {
+            sendSimpleMessage(subject, text);
+            return;
+        }
         MimeMessage message = emailSender.createMimeMessage();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
