@@ -159,6 +159,9 @@
                         <div class="content-dubbed">оплатить</div>
                     </button>
                 </div>
+                <div *ngIf="showSuccessLabel">
+                    <p class="text-success" style="padding-left: 15px">Ваше сообщние отправлено</p>
+                </div>
             </form>
             <div class="layout__license w-100">
                 <ul class="list-0">

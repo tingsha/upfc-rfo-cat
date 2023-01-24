@@ -23,6 +23,8 @@ export class FeedbackFormComponent {
         message: new FormControl<string>('', Validators.required)
     })
 
+    showSuccessLabel: boolean = false;
+
     constructor(private emailService: EmailService) {
     }
 
@@ -43,6 +45,6 @@ export class FeedbackFormComponent {
     }
 
     submit() {
-        this.emailService.sendMessage(this.feedbackForm, 'Обратная связь')
+        this.showSuccessLabel = this.emailService.sendMessage(this.feedbackForm, 'Обратная связь')
     }
 }

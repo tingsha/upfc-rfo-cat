@@ -38,6 +38,7 @@ export class CertificatePageComponent {
     })
 
     @ViewChildren(FileUploadComponent) fileUploadComponents: QueryList<FileUploadComponent>;
+    showSuccessLabel: boolean = false;
 
     get nicknameRu(): FormControl {
         return this.form.controls.nicknameRu
@@ -100,6 +101,6 @@ export class CertificatePageComponent {
     }
 
     submit() {
-        this.emailService.sendMessage(this.form, "Справка об отсутствии племенной ценности (для вывоза за пределы РФ)", this.fileUploadComponents)
+        this.showSuccessLabel = this.emailService.sendMessage(this.form, "Справка об отсутствии племенной ценности (для вывоза за пределы РФ)", this.fileUploadComponents)
     }
 }

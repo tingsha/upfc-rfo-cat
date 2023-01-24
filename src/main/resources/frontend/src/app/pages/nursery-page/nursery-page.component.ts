@@ -36,6 +36,7 @@ export class NurseryPageComponent {
     })
 
     @ViewChildren(FileUploadComponent) fileUploadComponents: QueryList<FileUploadComponent>;
+    showSuccessLabel: boolean = false;
 
     constructor(private emailService: EmailService) {
     }
@@ -81,6 +82,6 @@ export class NurseryPageComponent {
     }
 
     submit() {
-        this.emailService.sendMessage(this.form, "Регистрация питомника", this.fileUploadComponents)
+        this.showSuccessLabel = this.emailService.sendMessage(this.form, "Регистрация питомника", this.fileUploadComponents)
     }
 }

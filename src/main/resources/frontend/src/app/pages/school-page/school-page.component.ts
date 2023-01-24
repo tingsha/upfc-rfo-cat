@@ -27,7 +27,11 @@ export class SchoolPageComponent {
         message: new FormControl<string>('')
     })
 
-    @ViewChildren(FileUploadComponent) fileUploadComponents: QueryList<FileUploadComponent>;
+    @ViewChildren(FileUploadComponent) fileUploadComponents: QueryList<FileUploadComponent>
+
+    showSuccessLabelSchool: boolean = false
+
+    showSuccessLabelCertificate: boolean = false
 
     constructor(private emailService: EmailService) {
     }
@@ -65,10 +69,10 @@ export class SchoolPageComponent {
     }
 
     schoolSubmit() {
-        this.emailService.sendMessage(this.schoolForm, "Школа фелинологов", this.fileUploadComponents)
+        this.showSuccessLabelSchool = this.emailService.sendMessage(this.schoolForm, "Школа фелинологов", this.fileUploadComponents)
     }
 
     certificateSubmit() {
-        this.emailService.sendMessage(this.certificateForm, "Регистрация сертификата фелинолога в реестре «ЕВРД»")
+        this.showSuccessLabelCertificate = this.emailService.sendMessage(this.certificateForm, "Регистрация сертификата фелинолога в реестре «ЕВРД»");
     }
 }

@@ -12,6 +12,7 @@ export class AppComponent {
         name: new FormControl<string>('', Validators.required),
         phone: new FormControl<string>('', Validators.required)
     })
+    showSuccessLabel: boolean = false;
 
     constructor(private emailService: EmailService) {
     }
@@ -25,6 +26,6 @@ export class AppComponent {
     }
 
     submit() {
-        this.emailService.sendMessage(this.footerForm, 'Обратный звонок')
+        this.showSuccessLabel = this.emailService.sendMessage(this.footerForm, 'Обратный звонок')
     }
 }

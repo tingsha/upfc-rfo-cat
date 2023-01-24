@@ -45,6 +45,9 @@
                         </div>
                     </a>
                 </div>
+                <div *ngIf="showSuccessLabel">
+                    <p class="text-success" style="padding-left: 15px">Ваше сообщние отправлено</p>
+                </div>
             </form>
             <span class="contacts__policy">
                 Отправляя форму вы соглашаетесь с <a routerLink="/personal-data" class="white-hover">"Политикой обработки персональных данных"</a>

@@ -43,6 +43,8 @@ export class ChildrenPageComponent {
 
     @ViewChildren(FileUploadComponent) fileUploadComponents: QueryList<FileUploadComponent>;
 
+    showSuccessLabel: boolean = false;
+
     constructor(private emailService: EmailService) {
     }
 
@@ -95,6 +97,6 @@ export class ChildrenPageComponent {
     }
 
     submit() {
-        this.emailService.sendMessage(this.form, "Регистрация помета", this.fileUploadComponents)
+        this.showSuccessLabel = this.emailService.sendMessage(this.form, "Регистрация помета", this.fileUploadComponents)
     }
 }

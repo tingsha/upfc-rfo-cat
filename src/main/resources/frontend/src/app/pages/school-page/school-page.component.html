@@ -97,6 +97,9 @@
                         </li>
                     </ul>
                 </div>
+                <div *ngIf="showSuccessLabelSchool">
+                    <p class="text-success" style="padding-left: 15px">Ваше сообщние отправлено</p>
+                </div>
             </form>
         </div>
     </div>
@@ -150,6 +153,9 @@
                         <div class="content-original">оплатить</div>
                         <div class="content-dubbed">оплатить</div>
                     </button>
+                </div>
+                <div *ngIf="showSuccessLabelCertificate">
+                    <p class="text-success" style="padding-left: 15px">Ваше сообщние отправлено</p>
                 </div>
             </form>
             <div class="layout__license w-100">

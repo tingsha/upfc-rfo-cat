@@ -35,7 +35,9 @@ export class TransferPageComponent {
         message: new FormControl<string>('')
     })
 
-    @ViewChildren(FileUploadComponent) fileUploadComponents: QueryList<FileUploadComponent>;
+    @ViewChildren(FileUploadComponent) fileUploadComponents: QueryList<FileUploadComponent>
+
+    showSuccessLabel: boolean = false
 
     constructor(private emailService: EmailService) {
     }
@@ -101,6 +103,6 @@ export class TransferPageComponent {
     }
 
     submit() {
-        this.emailService.sendMessage(this.form, "Трансфер", this.fileUploadComponents)
+        this.showSuccessLabel = this.emailService.sendMessage(this.form, "Трансфер", this.fileUploadComponents)
     }
 }

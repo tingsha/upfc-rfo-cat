@@ -37,6 +37,8 @@ export class PedigreePageComponent {
 
     @ViewChildren(FileUploadComponent) fileUploadComponents: QueryList<FileUploadComponent>;
 
+    showSuccessLabel: boolean = true;
+
     constructor(private emailService: EmailService) {
     }
 
@@ -101,6 +103,6 @@ export class PedigreePageComponent {
     }
 
     submit() {
-        this.emailService.sendMessage(this.form, "Родословная", this.fileUploadComponents)
+        this.showSuccessLabel = this.emailService.sendMessage(this.form, "Родословная", this.fileUploadComponents)
     }
 }

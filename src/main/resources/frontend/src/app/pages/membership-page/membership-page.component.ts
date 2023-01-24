@@ -22,6 +22,7 @@ export class MembershipPageComponent {
         phone: new FormControl<string>('', Validators.minLength(10)),
         message: new FormControl<string>('')
     })
+    showSuccessLabel: boolean = false;
 
     get surname(): FormControl {
         return this.form.controls.surname
@@ -48,6 +49,6 @@ export class MembershipPageComponent {
     }
 
     submit() {
-        this.emailService.sendMessage(this.form, "Оплата членского взноса")
+        this.showSuccessLabel = this.emailService.sendMessage(this.form, "Оплата членского взноса")
     }
 }
