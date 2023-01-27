@@ -17,17 +17,26 @@ public class JSONService {
 
     /**
      * @param json исходная JSON строка
-     * @return строка, в которой json значения представлены в виде 'ключ: значение\n'
+     * @return {@code null}, если невозможно распарсить строку, иначе строка,
+     * в которой json значения представлены в виде 'ключ: значение\n'
      */
-    public String parseJsonString(@NonNull String json) throws JSONException{
+    public String parseJsonString(@NonNull String json) throws JSONException {
         try {
             JSONObject obj = new JSONObject(json);
-            StringJoiner builder = new StringJoiner("\n");
-            obj.keySet().forEach(key -> builder.add(Constants.LABEL_BY_KEY.getOrDefault(key, key) + ": " + obj.getString(key)));
-            return builder.toString();
+            StringJoiner joiner = new StringJoiner("\n");
+            if (obj.has("type")) {
+                JSONObject type = obj.getJSONObject("type");
+                joiner.add("Тип: " + type.getString("name"));
+            }
+            for (String key : obj.keySet()) {
+                if (obj.get(key) instanceof String) {
+                    joiner.add(Constants.LABEL_BY_KEY.getOrDefault(key, key) + ": " + obj.getString(key));
+                }
+            }
+            return joiner.toString();
         } catch (JSONException e) {
-            logger.error(String.format("Unable to parse JSON string '%s'", json));
-            throw new JSONException(e);
+            logger.warn(String.format("Unable to parse JSON string '%s'", json), e);
+            return null;
         }
     }
 }

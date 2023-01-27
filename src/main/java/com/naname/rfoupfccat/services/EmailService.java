@@ -3,6 +3,7 @@ package com.naname.rfoupfccat.services;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.lang.Nullable;
+import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -28,16 +29,20 @@ public class EmailService {
     }
 
     private void sendSimpleMessage(String subject, String text) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(SEND_FROM_EMAIL);
-        message.setTo(SEND_TO_EMAIL);
-        message.setSubject(subject);
-        message.setText(text);
-        emailSender.send(message);
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setFrom(SEND_FROM_EMAIL);
+            message.setTo(SEND_TO_EMAIL);
+            message.setSubject(subject);
+            message.setText(text);
+            emailSender.send(message);
+        } catch (MailException e) {
+            logger.warn("Unable to send simple email.", e);
+        }
     }
 
     @Async
-    public void sendEmailWithFiles(String subject, String text, @Nullable MultipartFile... files) {
+    public void sendEmail(String subject, String text, @Nullable MultipartFile... files) {
         if (files == null || files.length == 0) {
             sendSimpleMessage(subject, text);
             return;
@@ -54,7 +59,7 @@ public class EmailService {
             }
             emailSender.send(message);
         } catch (MessagingException e) {
-            logger.error("Error sending email with files.", e);
+            logger.warn("Unable to send email with files.", e);
         }
     }
 }

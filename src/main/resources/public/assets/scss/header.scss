@@ -472,15 +472,15 @@
 
 .nav-sublink {
     padding: 4px 0;
+    transition: padding .2s ease-in-out;
+
+    &:hover {
+        padding-left: 20px;
+    }
 
     > a {
         color: #204995;
-        transition: transform .2s ease-in-out;
         display: inline-block;
-
-        &:hover {
-            transform: translate(20px, 0);
-        }
 
         @include breakpoint($tablet-bp) {
             float: none;

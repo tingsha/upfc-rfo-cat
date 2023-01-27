@@ -33,10 +33,12 @@ public class FormController {
      * @param files    файлы, прикрепленные к форме
      */
     @PostMapping
-    public void sendEmail(@RequestParam("subject") String subject,
-                          @RequestParam("form") String formData,
-                          @Nullable @RequestParam("files") MultipartFile... files) {
+    public void sendFormToEmail(@RequestParam("subject") String subject,
+                                @RequestParam("form") String formData,
+                                @Nullable @RequestParam("files") MultipartFile... files) {
         String text = jsonService.parseJsonString(formData);
-        emailService.sendEmailWithFiles(subject, text, files);
+        if (text != null) {
+            emailService.sendEmail(subject, text, files);
+        }
     }
 }
