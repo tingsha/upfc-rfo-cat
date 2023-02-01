@@ -28,7 +28,7 @@ export class NurseryPageComponent {
         nameEn2: new FormControl<string>(''),
         nameRu3: new FormControl<string>('', Validators.required),
         nameEn3: new FormControl<string>(''),
-        document: new FormControl(null, [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])]),
+        document: new FormControl(null),
         email: new FormControl<string>('', [Validators.required, Validators.email]),
         phone: new FormControl<string>('', Validators.minLength(10)),
         type: new FormControl<string>('', Validators.required),

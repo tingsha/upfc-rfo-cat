@@ -30,9 +30,9 @@ export class CertificatePageComponent {
         nameEn: new FormControl<string>('', Validators.required),
         email: new FormControl<string>('', [Validators.required, Validators.email]),
         phone: new FormControl<string>('', Validators.minLength(10)),
-        photo1: new FormControl(null, [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])]),
-        photo2: new FormControl(null, [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])]),
-        photo3: new FormControl(null, [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])]),
+        photo1: new FormControl(null),
+        photo2: new FormControl(null),
+        photo3: new FormControl(null),
         type: new FormControl<string>('', Validators.required),
         message: new FormControl<string>('')
     })

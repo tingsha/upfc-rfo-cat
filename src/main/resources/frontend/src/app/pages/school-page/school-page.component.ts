@@ -23,7 +23,7 @@ export class SchoolPageComponent {
     certificateForm = new FormGroup({
         email: new FormControl<string>('', Validators.required),
         phone: new FormControl<string>(''),
-        photo: new FormControl(null, [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])]),
+        photo: new FormControl(null),
         message: new FormControl<string>('')
     })
 

@@ -24,7 +24,6 @@ $(function () {
                     return link && !/(\#|javascript:void\(0\)|callto:|tel:|mailto:|:\/\/)/.test(link);
                 },
                 onTransitionStart: function (options) {
-                    console.log('transition start');
                     setTimeout(function () {
                         plugins.preloader.removeClass('loaded');
                     }, options.duration * .75);

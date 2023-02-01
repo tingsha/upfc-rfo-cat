@@ -10,9 +10,9 @@ import {EmailService} from "../../services/email.service";
 })
 export class ChildrenPageComponent {
     types = [
-        {type: 'ELECTRONIC', name: 'Справка электронная форма 2000 рублей'},
-        {type: 'PHYSICAL', name: 'Справка бумажный носитель 2500 рублей'},
-        {type: 'ALL', name: 'Справка полный комплект 4300 рублей'}
+        {type: 'ELECTRONIC', name: 'Справка электронная форма 200 рублей'},
+        {type: 'PHYSICAL', name: 'Справка бумажный носитель 200 рублей'},
+        {type: 'ALL', name: 'Справка полный комплект 400 рублей'}
     ]
 
     form = new FormGroup({
@@ -33,10 +33,10 @@ export class ChildrenPageComponent {
         mother: new FormControl<string>('', Validators.required),
         email: new FormControl<string>('', [Validators.required, Validators.email]),
         phone: new FormControl<string>('', Validators.minLength(10)),
-        fatherPedigree: new FormControl(null, [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])]),
-        fatherCertificate: new FormControl(null, [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])]),
-        motherPedigree: new FormControl(null, [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])]),
-        motherCertificate: new FormControl(null, [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])]),
+        fatherPedigree: new FormControl(null),
+        fatherCertificate: new FormControl(null),
+        motherPedigree: new FormControl(null),
+        motherCertificate: new FormControl(null),
         type: new FormControl<string>('', Validators.required),
         message: new FormControl<string>('')
     })

@@ -26,11 +26,11 @@ export class PedigreePageComponent {
         owner: new FormControl<string>('', Validators.required),
         email: new FormControl<string>('', [Validators.required, Validators.email]),
         phone: new FormControl<string>('', Validators.minLength(10)),
-        catCard: new FormControl(null, [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])]),
-        fatherPedigree: new FormControl(null, [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])]),
-        fatherCertificate: new FormControl(null, [Validators.nullValidator, requiredFileType(['png', 'jpg', 'jpeg'])]),
-        motherPedigree: new FormControl(null, [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])]),
-        motherCertificate: new FormControl(null, [Validators.nullValidator, requiredFileType(['png', 'jpg', 'jpeg'])]),
+        catCard: new FormControl(null),
+        fatherPedigree: new FormControl(null),
+        fatherCertificate: new FormControl(null),
+        motherPedigree: new FormControl(null),
+        motherCertificate: new FormControl(null),
         type: new FormControl<string>('', Validators.required),
         message: new FormControl<string>('')
     })

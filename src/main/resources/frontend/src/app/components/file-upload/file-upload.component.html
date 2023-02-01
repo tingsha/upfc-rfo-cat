@@ -1,1 +1,1 @@
-<input type="file" [ngClass]="hasErrors ? 'border border-danger' : ''">
+<input type="file" [ngClass]="hasErrors ? 'border border-danger' : ''" (change)="selectFile($event)">

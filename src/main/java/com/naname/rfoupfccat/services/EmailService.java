@@ -55,7 +55,7 @@ public class EmailService {
             helper.setSubject(subject);
             helper.setText(text);
             for (var file : files) {
-                helper.addAttachment(Objects.requireNonNull(file.getOriginalFilename()), file);
+                helper.addAttachment(Objects.requireNonNull(file.getOriginalFilename(), "file name can't be empty"), file);
             }
             emailSender.send(message);
         } catch (MessagingException e) {

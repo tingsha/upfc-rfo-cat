@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, Input} from '@angular/core';
+import {Component, ElementRef, Input} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
@@ -13,37 +13,18 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from "@angular/for
         }
     ]
 })
-export class FileUploadComponent implements ControlValueAccessor {
-    @Input() progress: any
+export class FileUploadComponent {
+
+    selectedFiles?: FileList;
 
     @Input() hasErrors: boolean = false
-    onChange: Function
-    private file: File | null = null
 
-    @HostListener('change', ['$event.target.files']) emitFiles(event: FileList) {
-        const file = event && event.item(0)
-        this.onChange(file)
-        this.file = file
-    }
-
-    constructor(private host: ElementRef<HTMLInputElement>) {
-    }
-
-    writeValue(value: null) {
-        // clear file input
-        this.host.nativeElement.value = ''
-        this.file = null
-    }
-
-    registerOnChange(fn: Function) {
-        this.onChange = fn
-    }
-
-    registerOnTouched(fn: Function) {
+    selectFile(event: any): void {
+        this.selectedFiles = event.target.files;
     }
 
     get getFile(): File | null {
-        return this.file
+        return this.selectedFiles ? this.selectedFiles.item(0) : null;
     }
 }
 
