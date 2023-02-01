@@ -1,5 +1,4 @@
 import {Injectable, QueryList} from '@angular/core';
-import {Injectable, QueryList} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {FormGroup, ValidationErrors} from "@angular/forms";
 import {FileUploadComponent} from "../components/file-upload/file-upload.component";
