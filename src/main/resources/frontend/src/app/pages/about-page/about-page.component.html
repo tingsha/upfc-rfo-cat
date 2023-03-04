@@ -1,392 +1,202 @@
-<style>
-    section {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        margin: auto;
-        border-radius: 10px;
-        align-items:center;
-        justify-content:center;
-        background: #454545;
-        color: #fff;
-    }
-    .lds-heart {
-        display: inline-block;
-        position: relative;
-        width: 80px;
-        height: 80px;
-        transform: rotate(45deg);
-        transform-origin: 40px 40px;
-    }
-    .lds-heart div {
-        top: 32px;
-        left: 32px;
-        position: absolute;
-        width: 32px;
-        height: 32px;
-        background: #e31b23;
-        animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-    .lds-heart div:after,
-    .lds-heart div:before {
-        content: " ";
-        position: absolute;
-        display: block;
-        width: 32px;
-        height: 32px;
-        background: #e31b23;
-    }
-    .lds-heart div:before {
-        left: -24px;
-        border-radius: 50% 0 0 50%;
-    }
-    .lds-heart div:after {
-        top: -24px;
-        border-radius: 50% 50% 0 0;
-    }
-    @keyframes lds-heart {
-        0% {
-            transform: scale(0.95);
-        }
-        5% {
-            transform: scale(1.1);
-        }
-        39% {
-            transform: scale(0.85);
-        }
-        45% {
-            transform: scale(1);
-        }
-        60% {
-            transform: scale(0.95);
-        }
-        100% {
-            transform: scale(0.9);
-        }
-    }
-
-</style>
-<section>
-    <div class="lds-heart"><div></div></div>
-    <h1>В разработке</h1>
-</section>
-<!--<div class="container-wrapper">-->
-<!--    <section>-->
-<!--        <div class="swiper mySwiper">-->
-<!--            <div class="swiper-wrapper">-->
-<!--                <div class="swiper-slide" data-swiper-slide-index="0" role="group">-->
-<!--                    <div class="slide-content">-->
-<!--                        <div class="slide-holder">-->
-<!--                            <h6>российское фелинологическое общество</h6>-->
-<!--                        </div>-->
-<!--                        <div class="slide-title">-->
-<!--                            <h1>Теперь в твоем телефоне</h1>-->
-<!--                        </div>-->
-<!--                        <div class="slide-text">Скачай мобильное приложение и используй его в любое время в любом-->
-<!--                            месте-->
-<!--                        </div>-->
-<!--                        <div class="slider-button">-->
-<!--                            <a class="button button-lg button-primary button-primary-outline button-winona"-->
-<!--                               routerLink="/empty">-->
-<!--                                <div class="content-original">СКАЧАТЬ</div>-->
-<!--                                <div class="content-dubbed">СКАЧАТЬ</div>-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <img src="/assets/images/slider/sl-app.jpg" alt="Мобильное приложение">-->
-<!--                </div>-->
-<!--                <div class="swiper-slide swiper-slide-qr" data-swiper-slide-index="1" role="group">-->
-<!--                    <div class="slide-content">-->
-<!--                        <div class="slide-holder">-->
-<!--                            <h6>российское фелинологическое общество</h6>-->
-<!--                        </div>-->
-<!--                        <h1 class="wow-outer">-->
-<!--                <span class="wow slideInDown" data-caption-animate="slideInDown">-->
-<!--                    <span class="font-weight-bold">Сканируй QR-code, проверь <br/> достоверность родословной!</span>-->
-<!--                </span>-->
-<!--                        </h1>-->
-<!--                        <div class="slider-button">-->
-<!--                            <a class="button button-lg button-primary button-primary-outline button-winona"-->
-<!--                               routerLinkActive="active" routerLink="/regions">-->
-<!--                                <div class="content-original">ЛИЧНЫЙ КАБИНЕТ</div>-->
-<!--                                <div class="content-dubbed">ЛИЧНЫЙ КАБИНЕТ</div>-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <img src="assets/images/slider/sl-qr.jpg" alt="QR код">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="change-buttons">-->
-<!--                <div class="swiper-button-prev"></div>-->
-<!--                <div class="swiper-button-next"></div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    <section class="default__section news">-->
-<!--        <div class="news__wrapper">-->
-<!--            <p class="news__title">Новости </p>-->
-<!--            <a class="button button-lg button-primary button-winona wow slideInUp" routerLink="/empty">-->
-<!--                <div class="content-original">Все новости</div>-->
-<!--                <div class="content-dubbed">Все новости</div>-->
-<!--            </a>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    <section class="default__section benefits">-->
-<!--        <div class="benefits__wrapper">-->
-<!--            <h3 class="common__title wow-outer">-->
-<!--                <span class="wow slideInUp">НАШИ ПРЕИМУЩЕСТВА</span>-->
-<!--            </h3>-->
-<!--            <p class="common__subtitle">Профессиональное разведение кошек, основанное на знаниях генетики и стандартах</p>-->
-<!--            <div class="benefits__inner">-->
-<!--                <div class="benefits__description">-->
-<!--                    <div class="desription__icon wow fadeIn">-->
-<!--                        <img src="/assets/images/icons/1.png" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="description__title wow slideInDown">-->
-<!--                        <h4>ЕДИНЫЙ ВСЕРОССИЙСКИЙ РЕЕСТР ДОКУМЕНТОВ (ЕВРД) РФО</h4>-->
-<!--                    </div>-->
-<!--                    <div class="description__text">-->
-<!--                        <ul class="list-0">-->
-<!--                            <li>-->
-<!--                                Выдача документов на бланках с пятью степенями защиты ( водяные знаки, УФ-печать,-->
-<!--                                QR-kod). Бумажный носитель отравляется почтой или курьером заказчику.-->
-<!--                            </li>-->
-<!--                            <li>-->
-<!--                                Онлайн отправка электронной формы, в течении 24 часов с момента заказа, на e-mail , с-->
-<!--                                возможностью проверки достоверности документа по средству сканирования QR-koda.-->
-<!--                                Электронная форма защищена электронно-цифровой подписью и зарегистрирована в ЕВРД РФО.-->
-<!--                                Может быть распечатана владельцем самостоятельно.-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="benefits__description">-->
-<!--                    <div class="desription__icon wow fadeIn">-->
-<!--                        <img src="/assets/images/icons/2.png" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="description__title wow slideInDown">-->
-<!--                        <h4>ЕДИНЫЙ ВСЕРОССИЙСКИЙ РЕЕСТР ПИТОМНИКОВ КОШЕК</h4>-->
-<!--                    </div>-->
-<!--                    <div class="description__text">-->
-<!--                        <ul class="list-0">-->
-<!--                            <li>Регистрация питомников в единой базе, с выдачей подтверждающего Сертификата.</li>-->
-<!--                            <li>-->
-<!--                                Выдача Сертификата на бланке с тремя степенями защиты ( водяные знаки, УФ-печать,-->
-<!--                                QR-kod). Бумажный носитель отравляется почтой или курьером заказчику.-->
-<!--                            </li>-->
-<!--                            <li>-->
-<!--                                Онлайн отправка электронной формы, в течении 24 часов ( для перерегистрации-->
-<!--                                действующих питомников) и 72 часов ( для регистрации новых питомников) с момента заказа, на-->
-<!--                                e-mail, с возможностью проверки достоверности документа по средству сканирования QR-koda.-->
-<!--                                Электронная форма защищена электронно-цифровой подписью и зарегистрирована в ЕВРД РФО.-->
-<!--                                Может быть распечатана владельцем самостоятельно.-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="benefits__description">-->
-<!--                    <div class="desription__icon wow fadeIn">-->
-<!--                        <img src="/assets/images/icons/3.png" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="description__title wow slideInDown">-->
-<!--                        <h4>МЕЖДУНАРОДНЫЙ ВЫСТАВОЧНЫЙ РЕЙТИНГ</h4>-->
-<!--                    </div>-->
-<!--                    <div class="description__text">-->
-<!--                        <ul class="list-0">-->
-<!--                            <li>Автоматизированный сервис учета выставочных результатов.</li>-->
-<!--                            <li>Удобный софт для организации и проведения выставок , на протяжении всего-->
-<!--                                выставочного-->
-<!--                                процесса. От момента лицензирования до проведения Бест ин Шоу.-->
-<!--                            </li>-->
-<!--                            <li>-->
-<!--                                Удобная выставочная программа, с возможностью выдачи всех документов ( Диплом,-->
-<!--                                Титульный сертификат и др.) Международный рейтинг : Кошек, Заводчиков, Питомников, Клубов.-->
-<!--                                Честный подсчет баллов.-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    <section class="education">-->
-<!--        <div class="education__wrapper">-->
-<!--            <h3 class="common__title">ОБУЧАЙТЕСЬ С РФО </h3>-->
-<!--            <p class="common__subtitle">Профессиональное разведение кошек, основанное на знаниях генетики и стандартах</p>-->
-<!--            <div class="education__content">-->
-<!--                <img class="education__image" src="/assets/images/edu.jpg" alt="Обучение">-->
-<!--                <div class="education__inner">-->
-<!--                    <div class="education__item wow slideInLeft" style="margin-top: 0">-->
-<!--                        <img src="/assets/images/icons/star.png" alt="">-->
-<!--                        <a routerLink="/empty" class="item__text">Обучение судей</a>-->
-<!--                    </div>-->
-<!--                    <div class="education__item wow slideInLeft">-->
-<!--                        <img src="/assets/images/icons/star.png" alt="">-->
-<!--                        <a routerLink="/empty" class="item__text">Обучение ассистентов судей</a>-->
-<!--                    </div>-->
-<!--                    <div class="education__item wow slideInLeft">-->
-<!--                        <img src="/assets/images/icons/star.png" alt="">-->
-<!--                        <a routerLink="/empty" class="item__text">Обучение шоу-менеджеров</a>-->
-<!--                    </div>-->
-<!--                    <div class="education__item wow slideInLeft">-->
-<!--                        <img src="/assets/images/icons/star.png" alt="">-->
-<!--                        <a routerLink="/empty" class="item__text">Обучение Президентов клубов</a>-->
-<!--                    </div>-->
-<!--                    <div class="education__item wow slideInLeft">-->
-<!--                        <img src="/assets/images/icons/star.png" alt="">-->
-<!--                        <a routerLink="/empty" class="item__text">Школа стюардов</a>-->
-<!--                    </div>-->
-<!--                    <div class="education__item wow slideInLeft">-->
-<!--                        <img src="/assets/images/icons/star.png" alt="">-->
-<!--                        <a routerLink="/empty" class="item__text">Школа фелинологов</a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    <section class="rfo">-->
-<!--        <div class="rfo__wrapper">-->
-<!--            <div class="rfo__content">-->
-<!--                <h5 class="text-center">ОБЩЕРОССИЙСКАЯ ОБЩЕСТВЕННАЯ ОРГАНИЗАЦИЯ СОДЕЙСТВИЯ РАЗВИТИЮ ФЕЛИНОЛОГИИ</h5>-->
-<!--                <h3 class="font-weight-bold text-center">Российское Фелинологическое Общество</h3>-->
-<!--                <h5 class="text-center">Уважаемые любители кошек!</h5>-->
-<!--                <h5 class="text-center">-->
-<!--                    На нашем сайте Вы сможете воспользоваться удобным онлайн сервисом заказа документов,-->
-<!--                    с их последующей регистрацией в ЕДИНОМ ВСЕРОССИЙСКОМ РЕЕСТРЕ-->
-<!--                    Все бланки РФО имеют несколько степеней защиты: QR код, водяные знаки, УФ- печать.-->
-<!--                    РФО подготовила для Вас международный Рейтинг и различные формы обучения.-->
-<!--                    Наша команда соединила стандарты традиционного и рингового судейства,-->
-<!--                    что сделает выставки более интересными и динамичными для Вас!-->
-<!--                </h5>-->
-<!--                <h5 class="text-center">Мы полны планов и креативных проектов. Присоединяйтесь к Нам!</h5>-->
-<!--                <h4 class="text-center">С уважением, Правление РФО.</h4>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    <section class="achievements">-->
-<!--        <div class="achievements__inner">-->
-<!--            <img class="achievements__left" src="/assets/images/cat_eye.jpg" alt="">-->
-<!--            <div class="achievements__right">-->
-<!--                <div class="achievements__text">-->
-<!--                    <h3 class="achievements__title text-center">ДОСТИЖЕНИЯ</h3>-->
-<!--                    <p class="text-center">-->
-<!--                        <span class="text-width-1">Профессиональное разведение кошек, основанное назнаниях генетики и стандартах</span>-->
-<!--                    </p>-->
-<!--                    <div class="progress-linear-wrap">-->
-<!--                        <div class="progress-linear animated">-->
-<!--                            <div class="progress-linear-header">-->
-<!--                                <p class="progress-linear-title">Наличие территориальных отделений на территории РФ</p>-->
-<!--                                <div class="progress-linear-counter">67</div>-->
-<!--                            </div>-->
-<!--                            <div class="progress-linear-body">-->
-<!--                                <div class="progress-linear-bar" style="width: 67%;"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="progress-linear animated">-->
-<!--                            <div class="progress-linear-header">-->
-<!--                                <p class="progress-linear-title">Выставки</p>-->
-<!--                                <div class="progress-linear-counter">0</div>-->
-<!--                            </div>-->
-<!--                            <div class="progress-linear-body">-->
-<!--                                <div class="progress-linear-bar" style="width: 0%;"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="progress-linear animated">-->
-<!--                            <div class="progress-linear-header">-->
-<!--                                <p class="progress-linear-title">Обучающие проекты</p>-->
-<!--                                <div class="progress-linear-counter">0</div>-->
-<!--                            </div>-->
-<!--                            <div class="progress-linear-body">-->
-<!--                                <div class="progress-linear-bar" style="width: 0%;"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="progress-linear animated">-->
-<!--                            <div class="progress-linear-header">-->
-<!--                                <p class="progress-linear-title">Деятельность</p>-->
-<!--                                <div class="progress-linear-counter">41</div>-->
-<!--                            </div>-->
-<!--                            <div class="progress-linear-body">-->
-<!--                                <div class="progress-linear-bar" style="width: 41%;"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="progress-linear animated">-->
-<!--                            <div class="progress-linear-header">-->
-<!--                                <p class="progress-linear-title">Наши планы</p>-->
-<!--                                <div class="progress-linear-counter">100</div>-->
-<!--                            </div>-->
-<!--                            <div class="progress-linear-body">-->
-<!--                                <div class="progress-linear-bar" style="width: 100%;"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    <section class="articles">-->
-<!--        <div class="articles__wrapper">-->
-<!--            <h3 class="common__title">статьи</h3>-->
-<!--            <p class="common__subtitle">Профессиональное разведение кошек, основанное на знаниях генетики и-->
-<!--                стандартах-->
-<!--            </p>-->
-<!--            <div class="articles__button">-->
-<!--                <a class="button button-lg button-primary button-primary-outline button-winona">-->
-<!--                    <div class="content-original">все статьи</div>-->
-<!--                    <div class="content-dubbed">все статьи</div>-->
-<!--                </a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    <section class="contacts">-->
-<!--        <div class="contacts__wrapper">-->
-<!--            <div class="contacts__left">-->
-<!--                <h3 class="contacts__title">Написать нам</h3>-->
-<!--                <form class="forms" method="post">-->
-<!--                    <div class="forms__wrapper">-->
-<!--                        <div class="form">-->
-<!--                            <label for="feedbackName">Имя</label>-->
-<!--                            <input id="feedbackName" type="text" required>-->
-<!--                        </div>-->
-<!--                        <div class="form">-->
-<!--                            <label for="feedbackPhone">Телефон</label>-->
-<!--                            <input id="feedbackPhone" type="text">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="form w-100">-->
-<!--                        <label for="feedbackEmail">Ваш E-mail</label>-->
-<!--                        <input id="feedbackEmail" type="text" required>-->
-<!--                    </div>-->
-<!--                    <div class="form w-100">-->
-<!--                        <label for="feedbackMessage">Ваше сообщение</label>-->
-<!--                        <textarea id="feedbackMessage" required></textarea>-->
-<!--                    </div>-->
-<!--                    <div class="contacts__buttons">-->
-<!--                        <button type="submit" class="button button-primary button-primary-outline button-winona">-->
-<!--                            <div class="content-original">отправить</div>-->
-<!--                            <div class="content-dubbed">отправить</div>-->
-<!--                        </button>-->
-<!--                        <span>или использовать</span>-->
-<!--                        <a class="button button-primary-outline button-winona"-->
-<!--                           href="https://api.whatsapp.com/send?phone=79089037937" target="_blank">-->
-<!--                            <div class="content-original">-->
-<!--                                <span class="icon novi-icon mdi mdi-whatsapp big-icon"></span>-->
-<!--                                whatsapp-->
-<!--                            </div>-->
-<!--                            <div class="content-dubbed">-->
-<!--                                <span class="icon novi-icon mdi mdi-whatsapp big-icon"></span>-->
-<!--                                whatsapp-->
-<!--                            </div>-->
-<!--                        </a>-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--                <span class="contacts__policy">Отправляя форму вы соглашаетесь с-->
-<!--                            <a routerLink="/personal-data"><u>"Политикой обработки персональных данных"</u></a></span>-->
-<!--            </div>-->
-<!--            <div class="contacts__right">-->
-<!--                <div id="map" class="map"></div>-->
-<!--            </div>-->
-<!--            <div class="contacts__footer">-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--</div>-->
+<div class="container-wrapper">
+    <section class="title">
+        <div class="container title__container">
+            <h3 class="title__pretitle">Фелинология для всех</h3>
+            <h1 class="title__text">Российское фелинологическое общество</h1>
+            <h5 class="title__subtitle">Профессиональное разведение кошек, основанное на знаниях генетики и
+                стандартах</h5>
+            <div class="title__buttons">
+                <a routerLink="/membership" class="title__button">Присоединиться</a>
+                <a href="#benefits" class="title__more">Подробнее</a>
+            </div>
+        </div>
+    </section>
+    <section class="info">
+        <div class="info__wrapper container">
+            <div class="info__data">
+                <h3 class="info__title wow-outer">
+                    <span class="wow slideInUp">Кто мы такие?</span>
+                </h3>
+                <p class="info__text">
+                    Региональное отделение Российской фелинологической организации "Уральский племенной
+                    фелинологический
+                    центр" - недавно открывашийся филиал РФО на урале.<br/>
+                    Мы занимаемся всем, что связано с фелинологией, включая разведение, обучение и регистрацию ваших
+                    успехов.
+                </p>
+                <a class="info__button" href="#">УЗНАТЬ БОЛЬШЕ  ❯</a>
+            </div>
+            <img class="info__image" src="/assets/images/cat-icon.png" alt="cat-icon">
+        </div>
+    </section>
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="benefits__title">
+                <p>наши преимущества</p>
+            </div>
+            <div class="benefits__items">
+                <div class="benefit__item">
+                    <div class="benefits__card">
+                        <div class="benefits__card-title wow slideInDown">
+                            <h4>ЕДИНЫЙ ВСЕРОССИЙСКИЙ РЕЕСТР ДОКУМЕНТОВ (ЕВРД) РФО</h4>
+                        </div>
+                        <div class="benefits__card-text">
+                            <ul class="list-0">
+                                <li>
+                                    Выдача документов на бланках с пятью степенями защиты ( водяные знаки, УФ-печать,
+                                    QR-kod). Бумажный носитель отравляется почтой или курьером заказчику.
+                                </li>
+                                <li>
+                                    Онлайн отправка электронной формы, в течении 24 часов с момента заказа, на e-mail , с
+                                    возможностью проверки достоверности документа по средству сканирования QR-koda.
+                                    Электронная форма защищена электронно-цифровой подписью и зарегистрирована в ЕВРД РФО.
+                                    Может быть распечатана владельцем самостоятельно.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="benefits__card">
+                        <p class="benefits__number">1</p>
+                    </div>
+                </div>
+                <div class="benefit__item">
+                    <div class="benefits__card">
+                        <p class="benefits__number">2</p>
+                    </div>
+                    <div class="benefits__card">
+                        <div class="benefits__card-title wow slideInDown">
+                            <h4>ЕДИНЫЙ ВСЕРОССИЙСКИЙ РЕЕСТР ПИТОМНИКОВ КОШЕК</h4>
+                        </div>
+                        <div class="benefits__card-text">
+                            <ul class="list-0">
+                                <li>Регистрация питомников в единой базе, с выдачей подтверждающего Сертификата.</li>
+                                <li>
+                                    Выдача Сертификата на бланке с тремя степенями защиты ( водяные знаки, УФ-печать,
+                                    QR-kod). Бумажный носитель отравляется почтой или курьером заказчику.
+                                </li>
+                                <li>
+                                    Онлайн отправка электронной формы, в течении 24 часов ( для перерегистрации
+                                    действующих питомников) и 72 часов ( для регистрации новых питомников) с момента заказа, на
+                                    e-mail, с возможностью проверки достоверности документа по средству сканирования QR-koda.
+                                    Электронная форма защищена электронно-цифровой подписью и зарегистрирована в ЕВРД РФО.
+                                    Может быть распечатана владельцем самостоятельно.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="benefit__item">
+                    <div class="benefits__card">
+                        <div class="benefits__card-title wow slideInDown">
+                            <h4>МЕЖДУНАРОДНЫЙ ВЫСТАВОЧНЫЙ РЕЙТИНГ</h4>
+                        </div>
+                        <div class="benefits__card-text">
+                            <ul class="list-0">
+                                <li>Автоматизированный сервис учета выставочных результатов.</li>
+                                <li>Удобный софт для организации и проведения выставок , на протяжении всего
+                                    выставочного
+                                    процесса. От момента лицензирования до проведения Бест ин Шоу.
+                                </li>
+                                <li>
+                                    Удобная выставочная программа, с возможностью выдачи всех документов ( Диплом,
+                                    Титульный сертификат и др.) Международный рейтинг : Кошек, Заводчиков, Питомников, Клубов.
+                                    Честный подсчет баллов.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="benefits__card">
+                        <p class="benefits__number">3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="education">
+        <div class="education__wrapper education__container">
+            <div class="education__content">
+                <img class="education__image" src="/assets/images/ipad-edu.png" alt="Обучение">
+                <div class="education__inner">
+                    <h3 class="education__title">ОБУЧАЙТЕСЬ С РФО </h3>
+                    <p class="education__subtitle">Профессиональное разведение кошек, основанное на знаниях генетики и
+                        стандартах</p>
+                    <div class="education__item wow slideInLeft" style="margin-top: 0">
+                        <img class="education__icon" src="/assets/images/icons/auction.png" alt="">
+                        <a routerLink="/empty" class="education__item-text">Обучение судей</a>
+                    </div>
+                    <div class="education__item wow slideInLeft">
+                        <img class="education__icon" src="/assets/images/icons/assistant.png" alt="">
+                        <a routerLink="/empty" class="education__item-text">Обучение ассистентов судей</a>
+                    </div>
+                    <div class="education__item wow slideInLeft">
+                        <img class="education__icon" src="/assets/images/icons/manager.png" alt="">
+                        <a routerLink="/empty" class="education__item-text">Обучение шоу-менеджеров</a>
+                    </div>
+                    <div class="education__item wow slideInLeft">
+                        <img class="education__icon" src="/assets/images/icons/president.png" alt="">
+                        <a routerLink="/empty" class="education__item-text">Обучение Президентов клубов</a>
+                    </div>
+                    <div class="education__item wow slideInLeft">
+                        <img class="education__icon" src="/assets/images/icons/steward.png" alt="">
+                        <a routerLink="/empty" class="education__item-text">Школа стюардов</a>
+                    </div>
+                    <div class="education__item wow slideInLeft">
+                        <img class="education__icon" src="/assets/images/icons/paw-print.png" alt="">
+                        <a routerLink="/empty" class="education__item-text">Школа фелинологов</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contacts">
+        <div class="contacts__left">
+            <h3 class="contacts__title">Написать нам</h3>
+            <form class="forms" method="post">
+                <div class="forms__wrapper">
+                    <div class="form">
+                        <label for="feedbackName">Имя</label>
+                        <input id="feedbackName" type="text" required>
+                    </div>
+                    <div class="form">
+                        <label for="feedbackPhone">Телефон</label>
+                        <input id="feedbackPhone" type="text">
+                    </div>
+                </div>
+                <div class="form w-100">
+                    <label for="feedbackEmail">Ваш E-mail</label>
+                    <input id="feedbackEmail" type="text" required>
+                </div>
+                <div class="form w-100">
+                    <label for="feedbackMessage">Ваше сообщение</label>
+                    <textarea id="feedbackMessage" required></textarea>
+                </div>
+                <div class="contacts__buttons">
+                    <button type="submit" class="contacts__send">отправить</button>
+                    <span>или использовать</span>
+                    <a class="contacts__whatsapp"
+                       href="https://api.whatsapp.com/send?phone=79089037937" target="_blank">
+                        <span class="icon novi-icon mdi mdi-whatsapp big-icon"></span>
+                        whatsapp
+                    </a>
+                </div>
+            </form>
+            <span class="contacts__policy">Отправляя форму вы соглашаетесь с
+                            <a routerLink="/personal-data"><u>"Политикой обработки персональных данных"</u></a></span>
+        </div>
+        <div class="contacts__right">
+            <div id="map" class="map"></div>
+        </div>
+    </section>
+    <section class="invite">
+        <div class="invite__wrapper container">
+            <div class="invite__text">
+                <h2 class="invite__title">Присоединяйтесь сегодня</h2>
+                <p class="invite__subtitle">Профессиональное разведение кошек, основанное на знаниях генетики и
+                    стандартах</p>
+            </div>
+            <div class="invite__personal">
+                <a>ПРИСОЕДИНИТЬСЯ</a>
+            </div>
+        </div>
+    </section>
+</div>

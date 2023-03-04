@@ -8,8 +8,6 @@
 .contacts__title {
     font-size: 36px;
     font-weight: 400;
-    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
     padding-left: 15px;
 }
 
@@ -91,7 +89,6 @@
 }
 
 .contacts__policy {
-    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 14px;
     font-weight: 300;
     padding-left: 15px;
@@ -112,7 +109,8 @@
 }
 
 .purple__contacts {
-    background-color: #29293a;
+    background-color: black;
+    background-image: linear-gradient(312deg, rgba(136, 92, 156, 0.63) 6%, rgba(143, 90, 166, 0.8));
 
     color: #aeb1be;
 

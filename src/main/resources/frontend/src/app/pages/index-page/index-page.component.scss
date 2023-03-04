@@ -1,0 +1,600 @@
+@import "../../../assets/scss/_mixins.scss";
+@import "../../../assets/scss/_vars.scss";
+
+/* Title */
+
+.title {
+    height: calc(100vh - 50px);
+    background-image: linear-gradient(315deg, rgba(17, 201, 247, 0.7), rgba(69, 110, 196, 0.7) 49%,
+        rgba(113, 32, 153, 0.7)), url(/assets/images/cat.jpg);
+    background-position: 0 0, 50% 50%;
+    background-size: auto, cover;
+    background-repeat: repeat, no-repeat;
+    background-attachment: scroll, fixed;
+    color: white;
+}
+
+.title__container {
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.title__pretitle {
+    font-size: 38px;
+    text-transform: uppercase;
+    color: #f2f4f7;
+
+    @include breakpoint($tablet-bp) {
+        font-size: 32px;
+    }
+
+    @include breakpoint(805px) {
+        font-size: 24px;
+    }
+
+    @include breakpoint($mobile-bp) {
+        font-size: 18px;
+    }
+}
+
+.title__text {
+    font-size: 94px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 10px;
+
+    @include breakpoint($tablet-bp) {
+        font-size: 72px;
+    }
+
+    @include breakpoint(805px) {
+        font-size: 52px;
+    }
+
+    @include breakpoint($mobile-bp) {
+        font-size: 42px;
+    }
+
+    @include breakpoint(460px) {
+        font-size: 32px;
+    }
+}
+
+.title__subtitle {
+    font-size: 20px;
+    text-transform: none;
+    color: rgba(242, 246, 252, 0.63);
+    margin-bottom: 20px;
+
+    @include breakpoint($tablet-bp) {
+        font-size: 18px;
+    }
+
+    @include breakpoint($mobile-bp) {
+        font-size: 14px;
+    }
+}
+
+.title__buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.title__button {
+    padding: 13px 24px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    background-color: #0ac278;
+
+    &:hover {
+        background-color: darken(#0ac278, 5%);
+    }
+
+    @include breakpoint($mobile-bp) {
+        font-size: 14px;
+    }
+}
+
+.title__more {
+    text-transform: uppercase;
+    padding: 11px 24px;
+    border: 1px rgba(255, 255, 255, 0.54) solid;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.65);
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    @include breakpoint($mobile-bp) {
+        font-size: 14px;
+    }
+}
+
+/* Info */
+
+.info {
+    background-color: $primary-background-color;
+    color: #d7d9de;
+}
+
+.info__wrapper {
+    display: flex;
+    padding: 80px 0;
+}
+
+.info__data {
+    width: 65%;
+    margin-left: 10px;
+}
+
+.info__image {
+    width: 35%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+    display: block;
+    margin: auto;
+}
+
+.info__title {
+    color: #f2f4f7;
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: 400;
+
+    @include breakpoint($tablet-bp) {
+        font-size: 30px;
+    }
+
+    @include breakpoint($mobile-bp) {
+        font-size: 24px;
+    }
+}
+
+.info__text {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    color: #a5a7ad;
+    font-size: 14px;
+}
+
+.info__button {
+    display: block;
+    font: 500 14px Roboto;
+    line-height: 20px;
+    color: #0bd685;
+}
+
+/* Benefits */
+
+.benefits {
+    padding: 80px 0;
+    background-color: $secondary-background-color;
+    color: #d7d9de;
+}
+
+.benefits__title {
+    color: #f2f4f7;
+    text-transform: uppercase;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.benefit__item {
+    margin: 60px 0;
+    display: flex;
+}
+
+.benefits__card {
+    position: relative;
+    width: 50%;
+}
+
+.benefits__card-title {
+    color: #f2f4f7;
+    margin-top: 10px;
+
+    > h4 {
+        font-size: 24px;
+        font-weight: 400;
+
+        @include breakpoint($tablet-bp) {
+            font-size: 18px;
+        }
+    }
+}
+
+.benefits__card-text {
+    color: #a5a7ad;
+    margin-top: 16px;
+
+    > ul > li {
+        font-size: 14px;
+    }
+}
+
+.benefits__number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 56px;
+    color: #0bd685;
+    border: 5px solid #0bd685;
+    border-radius: 50%;
+    padding: 0 30px;
+}
+
+/* Education */
+
+.education {
+    max-height: 680px;
+    padding: 80px 0;
+    background-color: $primary-background-color;
+    overflow: hidden;
+
+    @include breakpoint($tablet-bp) {
+        padding: 50px 0;
+    }
+
+    @include breakpoint(1200px) {
+        max-height: 100%;
+    }
+}
+
+.education__container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.education__title {
+    font-size: 32px;
+    color: #f2f4f7;
+}
+
+.education__subtitle {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #a5a7ad;
+}
+
+.education__wrapper {
+    margin: auto;
+    max-width: 1200px;
+
+    @include breakpoint($tablet-bp) {
+        max-width: 900px;
+    }
+}
+
+.education__image {
+    max-width: 45%;
+    margin-right: 5%;
+    vertical-align: middle;
+    display: inline-block;
+    object-fit: cover;
+
+    @include breakpoint(1200px) {
+        margin-right: 0;
+        transform: none;
+    }
+
+    @include breakpoint(900px) {
+        display: none;
+    }
+}
+
+.education__content {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin-top: 40px;
+
+    @include breakpoint($mobile-bp) {
+        flex-wrap: wrap;
+    }
+
+    @include breakpoint(900px) {
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.education__item {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.education__icon {
+    text-align: center;
+    padding: 10px;
+    max-width: 60px;
+    max-height: 60px;
+    border: 2px solid #5f6266;
+}
+
+.education__inner {
+    padding: 0 15px;
+
+    @include breakpoint($tablet-bp) {
+        margin-top: 50px;
+    }
+}
+
+.education__item-text {
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: 400;
+    color: #d7d9de;
+
+    &:hover {
+        color: darken(#d7d9de, 20%);
+    }
+
+    @include breakpoint(1120px) {
+        font-size: 18px;
+        letter-spacing: 0;
+        margin-left: 18px;
+    }
+}
+
+/* Contacts */
+.contacts {
+    background-color: $secondary-background-color;
+    display: flex;
+
+    @include breakpoint(1020px) {
+        flex-direction: column;
+    }
+}
+
+.contacts__title {
+    color: #f2f4f7;
+    font-size: 36px;
+    font-weight: 400;
+    padding-left: 15px;
+}
+
+.contacts__wrapper {
+    padding: 80px 0;
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint(1100px) {
+        flex-wrap: wrap;
+    }
+}
+
+.contacts__right {
+    width: 50%;
+    margin-right: 1px;
+
+    @include breakpoint(1100px) {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+    }
+}
+
+.contacts__left {
+    width: 50%;
+    max-width: 600px;
+    margin: auto;
+    padding: 40px;
+
+    @include breakpoint(1100px) {
+        width: 100%;
+    }
+}
+
+.contacts__buttons {
+    margin-top: 45px;
+    margin-bottom: 15px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > a {
+        margin: 0;
+    }
+
+    > span {
+        color: #a5a7ad;
+        font-size: 14px;
+        font-weight: 300;
+    }
+
+    @include breakpoint($mobile-bp) {
+        display: grid;
+        row-gap: 15px;
+        text-align: center;
+        justify-content: unset;
+        margin: auto;
+        margin-top: 20px;
+    }
+}
+
+/* Invite */
+.invite {
+    background-color: black;
+    background-image: linear-gradient(312deg, rgba(136, 92, 156, 0.63) 6%, rgba(143, 90, 166, 0.8));
+}
+
+.invite__wrapper {
+    padding: 80px 0;
+    display: flex;
+
+    @include breakpoint($tablet-bp) {
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+.invite__text {
+    width: 70%;
+
+    @include breakpoint($tablet-bp) {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.invite__title {
+    color: #f2f4f7;
+    font-size: 32px;
+    font-weight: 400;
+
+    @include breakpoint($mobile-bp) {
+        font-size: 24px;
+    }
+}
+
+.invite__subtitle {
+    color: rgba(242, 246, 252, 0.63);
+    font-weight: 300;
+    font-size: 18px;
+
+
+    @include breakpoint($mobile-bp) {
+        font-size: 14px;
+    }
+}
+
+.invite__personal {
+    width: 30%;
+    display: grid;
+
+    a {
+        margin: auto;
+        cursor: pointer;
+        padding: 13px 24px;
+        color: white;
+        background-color: #0ac278;
+
+        &:hover {
+            background-color: darken(#0ac278, 5%);
+        }
+    }
+
+    @include breakpoint($tablet-bp) {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+.contacts__send {
+    padding: 13px 24px;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    font-size: 16px;
+    background-color: #0ac278;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken(#0ac278, 5%);
+    }
+}
+
+.contacts__whatsapp {
+    text-transform: uppercase;
+    padding: 11px 24px;
+    border: 1px rgba(255, 255, 255, 0.54) solid;
+    border-radius: 6px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.65);
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.map {
+    height: 100%;
+
+    @include breakpoint(1100px) {
+        min-height: 500px;
+    }
+}
+
+.big-icon {
+    font-size: 1.55rem;
+    color: #204995;
+}
+
+.content-dubbed > .mdi-whatsapp {
+    color: white;
+}
+
+.contacts__policy {
+    font-size: 14px;
+    font-weight: 300;
+    padding-left: 15px;
+    color: #a5a7ad;
+
+    > a {
+        color: #a5a7ad;
+
+        &:hover {
+            text-decoration: none;
+            color: darken(#a5a7ad, 5%);
+        }
+    }
+
+    @include breakpoint($mobile-bp) {
+        display: block;
+        margin-top: 15px;
+    }
+}
+
+.purple__contacts {
+    background-color: #29293a;
+
+    color: #aeb1be;
+
+    h3 {
+        color: white;
+    }
+
+    .contacts__left {
+        padding: 72px 0;
+    }
+
+    a {
+        color: #aeb1be;
+    }
+
+    .form {
+        padding-left: 15px;
+        padding-right: 20px;
+    }
+
+    .contacts__buttons {
+        padding-left: 15px;
+        padding-right: 20px;
+    }
+}
+
+.white {
+    color: white;
+}
+
+.white-hover {
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        color: white !important;
+    }
+}

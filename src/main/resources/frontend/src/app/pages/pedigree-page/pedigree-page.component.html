@@ -14,163 +14,169 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="forms__layout">
-        <h3 class="layout__title" style="text-align: center;">Форма заказа родословной.</h3>
-        <div class="layout__content d-flex justify-content-center flex-wrap">
-            <ul class="layout__subtitle list-0 w-100">
-                <li><h5>Родословная электронная форма 800 рублей</h5></li>
-                <li><h5>Родословная бумажный носитель 800 рублей</h5></li>
-                <li><h5>Родословная полный комплект 1600 рублей</h5></li>
-            </ul>
-            <form class="layout__forms" [formGroup]="form" (ngSubmit)="submit()" enctype="multipart/form-data">
-                <div class="forms__wrapper">
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Кличка</label>
-                        <input type="text" formControlName="nickname"
-                               [ngClass]="nickname.errors && nickname.touched ? 'border border-danger' : ''">
-                        <span *ngIf="nickname.errors?.['required'] && nickname.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+<div class="form__container">
+    <div class="container">
+        <div class="forms__layout">
+            <h3 class="layout__title" style="text-align: center;">Форма заказа родословной.</h3>
+            <div class="layout__content d-flex justify-content-center flex-wrap">
+                <ul class="layout__subtitle list-0 w-100">
+                    <li><h5>Родословная электронная форма 800 рублей</h5></li>
+                    <li><h5>Родословная бумажный носитель 800 рублей</h5></li>
+                    <li><h5>Родословная полный комплект 1600 рублей</h5></li>
+                </ul>
+                <form class="layout__forms" [formGroup]="form" (ngSubmit)="submit()" enctype="multipart/form-data">
+                    <div class="forms__wrapper">
+                        <div class="form wow fadeSlideInUp">
+                            <label>Кличка</label>
+                            <input type="text" formControlName="nickname"
+                                   [ngClass]="nickname.errors && nickname.touched ? 'border border-danger' : ''">
+                            <span *ngIf="nickname.errors?.['required'] && nickname.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                        </div>
+                        <div class="form wow fadeSlideInUp">
+                            <label>Пол</label>
+                            <input type="text" formControlName="sex"
+                                   [ngClass]="sex.errors && sex.touched ? 'border border-danger' : ''">
+                            <span *ngIf="sex.errors?.['required'] && sex.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                        </div>
                     </div>
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Пол</label>
-                        <input type="text" formControlName="sex"
-                               [ngClass]="sex.errors && sex.touched ? 'border border-danger' : ''">
-                        <span *ngIf="sex.errors?.['required'] && sex.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    <div class="forms__wrapper">
+                        <div class="form wow fadeSlideInUp">
+                            <label>Дата рождения</label>
+                            <input type="text" formControlName="birthDate" mask="00.00.0000" [showMaskTyped]="true"
+                                   [ngClass]="birthDate.errors && birthDate.touched ? 'border border-danger' : ''">
+                            <span *ngIf="birthDate.errors?.['required'] && birthDate.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                        </div>
+                        <div class="form wow fadeSlideInUp">
+                            <label>Порода</label>
+                            <input type="text" formControlName="breed"
+                                   [ngClass]="breed.errors && breed.touched ? 'border border-danger' : ''">
+                            <span *ngIf="breed.errors?.['required'] && breed.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                        </div>
                     </div>
-                </div>
-                <div class="forms__wrapper">
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Дата рождения</label>
-                        <input type="text" formControlName="birthDate" mask="00.00.0000" [showMaskTyped]="true"
-                               [ngClass]="birthDate.errors && birthDate.touched ? 'border border-danger' : ''">
-                        <span *ngIf="birthDate.errors?.['required'] && birthDate.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    <div class="forms__wrapper">
+                        <div class="form wow fadeSlideInUp">
+                            <label>Окрас</label>
+                            <input type="text" formControlName="color"
+                                   [ngClass]="color.errors && color.touched ? 'border border-danger' : ''">
+                            <span *ngIf="color.errors?.['required'] && color.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                        </div>
+                        <div class="form wow fadeSlideInUp">
+                            <label>Номер микрочипа, если есть</label>
+                            <input type="text" formControlName="microchipNumber">
+                        </div>
                     </div>
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Порода</label>
-                        <input type="text" formControlName="breed"
-                               [ngClass]="breed.errors && breed.touched ? 'border border-danger' : ''">
-                        <span *ngIf="breed.errors?.['required'] && breed.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    <div class="form w-100 wow fadeSlideInUp">
+                        <label>Заводчик (Адрес, индекс, название питомника)</label>
+                        <input type="text" formControlName="breeder"
+                               [ngClass]="breeder.errors && breeder.touched ? 'border border-danger' : ''">
+                        <span *ngIf="breeder.errors?.['required'] && breeder.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
                     </div>
-                </div>
-                <div class="forms__wrapper">
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Окрас</label>
-                        <input type="text" formControlName="color"
-                               [ngClass]="color.errors && color.touched ? 'border border-danger' : ''">
-                        <span *ngIf="color.errors?.['required'] && color.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    <div class="form w-100 wow fadeSlideInUp">
+                        <label>Владелец (Адрес, индекс, название питомника)</label>
+                        <input type="text" formControlName="owner"
+                               [ngClass]="owner.errors && owner.touched ? 'border border-danger' : ''">
+                        <span *ngIf="owner.errors?.['required'] && owner.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
                     </div>
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Номер микрочипа, если есть</label>
-                        <input type="text" formControlName="microchipNumber">
+                    <div class="forms__wrapper">
+                        <div class="form wow fadeSlideInUp">
+                            <label>Ваш E-mail</label>
+                            <input formControlName="email" type="text"
+                                   [ngClass]="email.errors && email.touched ? 'border border-danger' : ''">
+                            <span *ngIf="email.errors?.['required'] && email.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                            <span *ngIf="email.errors?.['email'] && email.touched" class="form-validation">Электронная почта задана некорректно.</span>
+                        </div>
+                        <div class="form wow fadeSlideInUp">
+                            <label>Ваш Телефон</label>
+                            <input type="text" formControlName="phone" prefix="+7 " mask='(000) 000-00-00'
+                                   [ngClass]="phone.errors && phone.touched ? 'border border-danger' : ''">
+                            <span *ngIf="phone.errors?.['minlength'] && phone.touched" class="form-validation">Некорректный номер.</span>
+                        </div>
                     </div>
-                </div>
-                <div class="form form-gray w-100 wow fadeSlideInUp">
-                    <label>Заводчик (Адрес, индекс, название питомника)</label>
-                    <input type="text" formControlName="breeder"
-                           [ngClass]="breeder.errors && breeder.touched ? 'border border-danger' : ''">
-                    <span *ngIf="breeder.errors?.['required'] && breeder.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
-                </div>
-                <div class="form form-gray w-100 wow fadeSlideInUp">
-                    <label>Владелец (Адрес, индекс, название питомника)</label>
-                    <input type="text" formControlName="owner"
-                           [ngClass]="owner.errors && owner.touched ? 'border border-danger' : ''">
-                    <span *ngIf="owner.errors?.['required'] && owner.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
-                </div>
-                <div class="forms__wrapper">
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Ваш E-mail</label>
-                        <input formControlName="email" type="text"
-                               [ngClass]="email.errors && email.touched ? 'border border-danger' : ''">
-                        <span *ngIf="email.errors?.['required'] && email.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
-                        <span *ngIf="email.errors?.['email'] && email.touched" class="form-validation">Электронная почта задана некорректно.</span>
+                    <div class="form w-100 wow fadeSlideInUp">
+                        <label>Фото карточки котенка/родословной</label>
+                        <app-file-upload formControlName="catCard"
+                                         [hasErrors]="catCard.errors != null && catCard.touched"
+                                         (focusout)="catCard.markAsTouched()"></app-file-upload>
+                        <span *ngIf="catCard.errors?.['required'] && catCard.touched" class="form-validation">Необходимо выбрать файл.</span>
                     </div>
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Ваш Телефон</label>
-                        <input type="text" formControlName="phone" prefix="+7 " mask='(000) 000-00-00'
-                               [ngClass]="phone.errors && phone.touched ? 'border border-danger' : ''">
-                        <span *ngIf="phone.errors?.['minlength'] && phone.touched" class="form-validation">Некорректный номер.</span>
+                    <div class="form w-100 wow fadeSlideInUp">
+                        <label>Фото родословной папы.</label>
+                        <app-file-upload formControlName="fatherPedigree"
+                                         [hasErrors]="fatherPedigree.errors != null && fatherPedigree.touched"
+                                         (focusout)="fatherPedigree.markAsTouched()"></app-file-upload>
+                        <span *ngIf="fatherPedigree.errors?.['required'] && fatherPedigree.touched"
+                              class="form-validation">Необходимо выбрать файл.</span>
                     </div>
-                </div>
-                <div class="form form-gray w-100 wow fadeSlideInUp">
-                    <label>Фото карточки котенка/родословной</label>
-                    <app-file-upload formControlName="catCard" [hasErrors]="catCard.errors != null && catCard.touched"
-                                     (focusout)="catCard.markAsTouched()"></app-file-upload>
-                    <span *ngIf="catCard.errors?.['required'] && catCard.touched" class="form-validation">Необходимо выбрать файл.</span>
-                </div>
-                <div class="form form-gray w-100 wow fadeSlideInUp">
-                    <label>Фото родословной папы.</label>
-                    <app-file-upload formControlName="fatherPedigree"
-                                     [hasErrors]="fatherPedigree.errors != null && fatherPedigree.touched"
-                                     (focusout)="fatherPedigree.markAsTouched()"></app-file-upload>
-                    <span *ngIf="fatherPedigree.errors?.['required'] && fatherPedigree.touched" class="form-validation">Необходимо выбрать файл.</span>
-                </div>
-                <div class="form form-gray w-100 wow fadeSlideInUp">
-                    <label>Фото последнего титульного сертификата родословной папы, при его наличии.</label>
-                    <app-file-upload formControlName="fatherCertificate"
-                                     [hasErrors]="fatherCertificate.errors != null && fatherCertificate.touched"
-                                     (focusout)="fatherCertificate.markAsTouched()"></app-file-upload>
-                    <span *ngIf="fatherCertificate.errors?.['required'] && fatherCertificate.touched"
-                          class="form-validation">Необходимо заполнить текстовое поле.</span>
-                </div>
-                <div class="form form-gray w-100 wow fadeSlideInUp">
-                    <label>Фото родословной мамы.</label>
-                    <app-file-upload formControlName="motherPedigree"
-                                     [hasErrors]="motherPedigree.errors != null && motherPedigree.touched"
-                                     (focusout)="motherPedigree.markAsTouched()"></app-file-upload>
-                    <span *ngIf="motherPedigree.errors?.['required'] && motherPedigree.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
-                </div>
-                <div class="form form-gray w-100 wow fadeSlideInUp">
-                    <label>Фото последнего титульного сертификата родословной мамы, при его наличии.</label>
-                    <app-file-upload formControlName="motherCertificate"
-                                     [hasErrors]="motherCertificate.errors != null && motherCertificate.touched"
-                                     (focusout)="motherCertificate.markAsTouched()"></app-file-upload>
-                    <span *ngIf="motherCertificate.errors?.['required'] && motherCertificate.touched"
-                          class="form-validation">Необходимо заполнить текстовое поле.</span>
-                </div>
-                <div class="form form-gray w-100 wow fadeSlideInUp">
-                    <label>Нажмите для выбора типа получения документов.</label>
-                    <select formControlName="type"
-                            [ngClass]="type.errors && type.touched ? 'border border-danger' : ''">
-                        <option *ngFor="let type of types" [ngValue]="type">
-                            {{ type.name }}
-                        </option>
-                    </select>
-                    <span *ngIf="type.errors?.['required'] && type.touched" class="form-validation">Необходимо выбрать тип документа.</span>
-                </div>
-                <div class="form form-gray w-100 wow fadeSlideInUp">
-                    <label>Комментарий</label>
-                    <textarea formControlName="message"></textarea>
-                </div>
-                <div class="layout__buttons w-100">
-                    <button type="submit" class="button button-primary button-primary-outline button-winona m-0 mr-2 wow slideInRight">
-                        <div class="content-original">отправить</div>
-                        <div class="content-dubbed">отправить</div>
-                    </button>
-                    <span>после отправки заполненной формы, вам необходимо оплатить целевой взнос</span>
-                    <button type="button" class="button button-primary-outline button-winona m-0 ml-2 wow slideInLeft"
-                            onclick="ipayCheckout({
+                    <div class="form w-100 wow fadeSlideInUp">
+                        <label>Фото последнего титульного сертификата родословной папы, при его наличии.</label>
+                        <app-file-upload formControlName="fatherCertificate"
+                                         [hasErrors]="fatherCertificate.errors != null && fatherCertificate.touched"
+                                         (focusout)="fatherCertificate.markAsTouched()"></app-file-upload>
+                        <span *ngIf="fatherCertificate.errors?.['required'] && fatherCertificate.touched"
+                              class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form w-100 wow fadeSlideInUp">
+                        <label>Фото родословной мамы.</label>
+                        <app-file-upload formControlName="motherPedigree"
+                                         [hasErrors]="motherPedigree.errors != null && motherPedigree.touched"
+                                         (focusout)="motherPedigree.markAsTouched()"></app-file-upload>
+                        <span *ngIf="motherPedigree.errors?.['required'] && motherPedigree.touched"
+                              class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form w-100 wow fadeSlideInUp">
+                        <label>Фото последнего титульного сертификата родословной мамы, при его наличии.</label>
+                        <app-file-upload formControlName="motherCertificate"
+                                         [hasErrors]="motherCertificate.errors != null && motherCertificate.touched"
+                                         (focusout)="motherCertificate.markAsTouched()"></app-file-upload>
+                        <span *ngIf="motherCertificate.errors?.['required'] && motherCertificate.touched"
+                              class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form w-100 wow fadeSlideInUp">
+                        <label>Нажмите для выбора типа получения документов.</label>
+                        <select formControlName="type"
+                                [ngClass]="type.errors && type.touched ? 'border border-danger' : ''">
+                            <option *ngFor="let type of types" [ngValue]="type">
+                                {{ type.name }}
+                            </option>
+                        </select>
+                        <span *ngIf="type.errors?.['required'] && type.touched" class="form-validation">Необходимо выбрать тип документа.</span>
+                    </div>
+                    <div class="form w-100 wow fadeSlideInUp">
+                        <label>Комментарий</label>
+                        <textarea formControlName="message"></textarea>
+                    </div>
+                    <div class="layout__buttons w-100">
+                        <button type="submit" class="button__primary m-0 mr-2 wow slideInRight">
+                            отправить
+                        </button>
+                        <span>после отправки заполненной формы, вам необходимо оплатить целевой взнос</span>
+                        <button type="button"
+                                class="button__secondary m-0 ml-2 wow slideInLeft"
+                                onclick="ipayCheckout({
                                     currency:'RUB',
                                     order_number:'',
                                     description: 'Целевой взнос РФО Родословная'},
                                     function(order) { showSuccessfulPurchase(order) },
                                     function(order) { showFailurefulPurchase(order) })">
-                        <div class="content-original">оплатить</div>
-                        <div class="content-dubbed">оплатить</div>
-                    </button>
+                            оплатить
+                        </button>
+                    </div>
+                    <div *ngIf="showSuccessLabel">
+                        <p class="text-success" style="padding-left: 15px">Ваше сообщние отправлено</p>
+                    </div>
+                </form>
+                <div class="layout__license w-100">
+                    <ul class="list-0">
+                        <li class="layout__license-item">Отправляя форму вы соглашаетесь с
+                            <a style="text-align: center;" routerLink="/personal-data">"Политикой обработки персональных
+                                данных"</a>
+                        </li>
+                        <li class="layout__license-item"><a routerLink="/payment">Информация о "Способах оплаты"</a>
+                        </li>
+                        <li class="layout__license-item"><a routerLink="/delivery">Информация о "Доставке"</a></li>
+                        <li class="layout__license-item"><a routerLink="/return">Информация о "Возврате"</a></li>
+                    </ul>
                 </div>
-                <div *ngIf="showSuccessLabel">
-                    <p class="text-success" style="padding-left: 15px">Ваше сообщние отправлено</p>
-                </div>
-            </form>
-            <div class="layout__license w-100">
-                <ul class="list-0">
-                    <li class="layout__license-item">Отправляя форму вы соглашаетесь с
-                        <a style="text-align: center;" routerLink="/personal-data">"Политикой обработки персональных данных"</a>
-                    </li>
-                    <li class="layout__license-item"><a routerLink="/payment">Информация о "Способах оплаты"</a></li>
-                    <li class="layout__license-item"><a routerLink="/delivery">Информация о "Доставке"</a></li>
-                    <li class="layout__license-item"><a routerLink="/return">Информация о "Возврате"</a></li>
-                </ul>
             </div>
         </div>
     </div>

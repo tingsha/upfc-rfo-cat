@@ -14,95 +14,99 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="forms__layout">
-        <h3 class="layout__title" style="text-align: center;">Заполните форму для "Оплаты ежегодного членского взноса"</h3>
-        <div class="layout__content d-flex justify-content-center flex-wrap">
-            <ul class="layout__description list-0 w-100">
-                <li>Целевой взнос 1200 рублей (Членский ежегодный взнос действует до 31 декабря текущего года).</li>
-            </ul>
-            <form class="layout__forms" [formGroup]="form" (ngSubmit)="submit()">
-                <div class="forms__wrapper">
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Фамилия</label>
-                        <input type="text" formControlName="surname"
-                            [ngClass]="surname.errors && surname.touched ? 'border border-danger' : ''">
-                        <span *ngIf="surname.errors?.['required'] && surname.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
-                    </div>
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Имя</label>
-                        <input type="text" formControlName="name"
-                            [ngClass]="name.errors && name.touched ? 'border border-danger' : ''">
-                        <span *ngIf="name.errors?.['required'] && name.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
-                    </div>
-                </div>
-                <div class="forms__wrapper">
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Отчество</label>
-                        <input type="text" formControlName="patronymic">
-                    </div>
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Субъект РФ (номер). <a routerLink="/regions">Открыть справочник</a></label>
-                        <input type="text" formControlName="region"
-                            [ngClass]="region.errors && region.touched ? 'border border-danger' : ''">
-                        <span *ngIf="region.errors?.['required'] && region.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
-                    </div>
-                </div>
-                <div class="form form-gray w-100 wow fadeSlideInUp">
-                    <label>Адрес:(адрес местожительства с индексом)</label>
-                    <input type="text" formControlName="address"
-                        [ngClass]="address.errors && address.touched ? 'border border-danger' : ''">
-                    <span *ngIf="address.errors?.['required'] && address.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
-                </div>
-                <div class="forms__wrapper">
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Ваш E-mail</label>
-                        <input formControlName="email" type="text"
-                               [ngClass]="email.errors && email.touched ? 'border border-danger' : ''">
-                        <span *ngIf="email.errors?.['required'] && email.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
-                        <span *ngIf="email.errors?.['email'] && email.touched" class="form-validation">Электронная почта задана некорректно.</span>
-                    </div>
-                    <div class="form form-gray wow fadeSlideInUp">
-                        <label>Ваш Телефон</label>
-                        <input type="text" formControlName="phone" prefix="+7 " mask='(000) 000-00-00'
-                               [ngClass]="phone.errors && phone.touched ? 'border border-danger' : ''">
-                        <span *ngIf="phone.errors?.['minlength'] && phone.touched" class="form-validation">Некорректный номер.</span>
-                    </div>
-                </div>
-                <div class="form form-gray w-100 wow fadeSlideInUp">
-                    <label>Комментарий</label>
-                    <textarea formControlName="message"></textarea>
-                </div>
-                <div class="layout__buttons w-100">
-                    <button type="submit" class="button button-primary button-primary-outline button-winona m-0 mr-2 wow slideInRight">
-                        <div class="content-original">отправить</div>
-                        <div class="content-dubbed">отправить</div>
-                    </button>
-                    <span>после отправки заполненной формы, вам необходимо оплатить целевой взнос</span>
-                    <button type="button" class="button button-primary-outline button-winona m-0 ml-2 wow slideInLeft"
-                            onclick="ipayCheckout({
-                                    currency:'RUB',
-                                    order_number:'',
-                                    description: 'Целевой взнос РФО Вступление заводчика'},
-                                    function(order) { showSuccessfulPurchase(order) },
-                                    function(order) { showFailurefulPurchase(order) })">
-                        <div class="content-original">оплатить</div>
-                        <div class="content-dubbed">оплатить</div>
-                    </button>
-                </div>
-                <div *ngIf="showSuccessLabel">
-                    <p class="text-success" style="padding-left: 15px">Ваше сообщние отправлено</p>
-                </div>
-            </form>
-            <div class="layout__license w-100">
-                <ul class="list-0">
-                    <li class="layout__license-item">Отправляя форму вы соглашаетесь с
-                        <a style="text-align: center;" routerLink="/personal-data">"Политикой обработки персональных данных"</a>
-                    </li>
-                    <li class="layout__license-item"><a routerLink="/payment">Информация о "Способах оплаты"</a></li>
-                    <li class="layout__license-item"><a routerLink="/delivery">Информация о "Доставке"</a></li>
-                    <li class="layout__license-item"><a routerLink="/return">Информация о "Возврате"</a></li>
+<div class="form__container">
+    <div class="container">
+        <div class="forms__layout">
+            <h3 class="layout__title" style="text-align: center;">Заполните форму для "Оплаты ежегодного членского
+                взноса"</h3>
+            <div class="layout__content d-flex justify-content-center flex-wrap">
+                <ul class="layout__description list-0 w-100">
+                    <li>Целевой взнос 1200 рублей (Членский ежегодный взнос действует до 31 декабря текущего года).</li>
                 </ul>
+                <form class="layout__forms" [formGroup]="form" (ngSubmit)="submit()">
+                    <div class="forms__wrapper">
+                        <div class="form mt-0 wow fadeSlideInUp">
+                            <label>Фамилия</label>
+                            <input type="text" formControlName="surname"
+                                   [ngClass]="surname.errors && surname.touched ? 'border border-danger' : ''">
+                            <span *ngIf="surname.errors?.['required'] && surname.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                        </div>
+                        <div class="form mt-0 wow fadeSlideInUp">
+                            <label>Имя</label>
+                            <input type="text" formControlName="name"
+                                   [ngClass]="name.errors && name.touched ? 'border border-danger' : ''">
+                            <span *ngIf="name.errors?.['required'] && name.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                        </div>
+                    </div>
+                    <div class="forms__wrapper">
+                        <div class="form mt-0 wow fadeSlideInUp">
+                            <label>Отчество</label>
+                            <input type="text" formControlName="patronymic">
+                        </div>
+                        <div class="form mt-0 wow fadeSlideInUp">
+                            <label>Субъект РФ (номер). <a routerLink="/regions">Открыть справочник</a></label>
+                            <input type="text" formControlName="region"
+                                   [ngClass]="region.errors && region.touched ? 'border border-danger' : ''">
+                            <span *ngIf="region.errors?.['required'] && region.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                        </div>
+                    </div>
+                    <div class="form mt-0 w-100 wow fadeSlideInUp">
+                        <label>Адрес:(адрес местожительства с индексом)</label>
+                        <input type="text" formControlName="address"
+                               [ngClass]="address.errors && address.touched ? 'border border-danger' : ''">
+                        <span *ngIf="address.errors?.['required'] && address.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="forms__wrapper">
+                        <div class="form mt-0 wow fadeSlideInUp">
+                            <label>Ваш E-mail</label>
+                            <input formControlName="email" type="text"
+                                   [ngClass]="email.errors && email.touched ? 'border border-danger' : ''">
+                            <span *ngIf="email.errors?.['required'] && email.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                            <span *ngIf="email.errors?.['email'] && email.touched" class="form-validation">Электронная почта задана некорректно.</span>
+                        </div>
+                        <div class="form mt-0 wow fadeSlideInUp">
+                            <label>Ваш Телефон</label>
+                            <input type="text" formControlName="phone" prefix="+7 " mask='(000) 000-00-00'
+                                   [ngClass]="phone.errors && phone.touched ? 'border border-danger' : ''">
+                            <span *ngIf="phone.errors?.['minlength'] && phone.touched" class="form-validation">Некорректный номер.</span>
+                        </div>
+                    </div>
+                    <div class="form mt-0 w-100 wow fadeSlideInUp">
+                        <label>Комментарий</label>
+                        <textarea formControlName="message"></textarea>
+                    </div>
+                    <div class="layout__buttons w-100">
+                        <button type="submit" class="button__primary m-0 mr-2 wow slideInRight">
+                            отправить
+                        </button>
+                        <span>после отправки заполненной формы, вам необходимо оплатить целевой взнос</span>
+                        <button type="button"
+                                class="button__secondary m-0 ml-2 wow slideInLeft"
+                                onclick="ipayCheckout({
+                                        currency:'RUB',
+                                        order_number:'',
+                                        description: 'Целевой взнос РФО Вступление заводчика'},
+                                        function(order) { showSuccessfulPurchase(order) },
+                                        function(order) { showFailurefulPurchase(order) })">
+                            оплатить
+                        </button>
+                    </div>
+                    <div *ngIf="showSuccessLabel">
+                        <p class="text-success" style="padding-left: 15px">Ваше сообщние отправлено</p>
+                    </div>
+                </form>
+                <div class="layout__license w-100">
+                    <ul class="list-0">
+                        <li class="layout__license-item">Отправляя форму вы соглашаетесь с
+                            <a style="text-align: center;" routerLink="/personal-data">"Политикой обработки персональных
+                                данных"</a>
+                        </li>
+                        <li class="layout__license-item"><a routerLink="/payment">Информация о "Способах оплаты"</a>
+                        </li>
+                        <li class="layout__license-item"><a routerLink="/delivery">Информация о "Доставке"</a></li>
+                        <li class="layout__license-item"><a routerLink="/return">Информация о "Возврате"</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

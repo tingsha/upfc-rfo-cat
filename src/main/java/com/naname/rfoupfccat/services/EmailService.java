@@ -59,7 +59,7 @@ public class EmailService {
             }
             emailSender.send(message);
         } catch (MessagingException e) {
-            logger.error("Unable to send email with files.", e);
+            logger.warn("Unable to send email with files.", e);
         }
     }
 }

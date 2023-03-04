@@ -1,5 +1,6 @@
 $(function () {
-    let headerHeight = $("#header").innerHeight(),
+    let header = $("#header"),
+        headerHeight = header.innerHeight(),
         nav = $("#navbar-main"),
         scrollOffset = $(window).scrollTop(),
         isNoviBuilder = false,
@@ -72,9 +73,11 @@ $(function () {
 
     function checkScroll(scrollOffset) {
         if (scrollOffset >= headerHeight) {
-            nav.addClass("fixed");
+            header.addClass("fixed");
+            header.css('background-color', '#eee');
         } else {
-            nav.removeClass("fixed");
+            header.removeClass("fixed");
+            header.css('background-color', '#fff');
         }
     }
 
@@ -114,34 +117,6 @@ $(function () {
             delay: 3000,
         },
     });
-
-    ymaps.ready(init);
-
-    function init() {
-        var myMap = new ymaps.Map("map", {
-            center: [57.254271, 60.108602],
-            zoom: 14,
-            controls: ["zoomControl"],
-        });
-        if ($(window).width() <= 1100) {
-            myMap.behaviors.disable(["scrollZoom"]);
-        }
-        myMap.geoObjects.add(
-            new ymaps.Placemark(
-                [57.254271, 60.108602],
-                {
-                    balloonContent:
-                        "624130, Россия, Новоуральск, Красногвардейский проезд, д. 4",
-                    iconCaption:
-                        'Региональное отделение Российской фелинологической организации "Уральский племенной фелинологический центр',
-                },
-                {
-                    preset: "islands#icon",
-                    iconColor: "#0095b6",
-                }
-            )
-        );
-    }
 
     /** Burger toggle */
     $("#burger").on("click", function (event) {

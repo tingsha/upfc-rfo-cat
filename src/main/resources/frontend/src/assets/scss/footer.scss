@@ -1,6 +1,6 @@
 .footer {
     color: #aeb1be;
-    background-color: #15191f;
+    background-color: $secondary-background-color;
     padding-top: 80px;
     padding-bottom: 30px;
 
@@ -70,8 +70,6 @@
 
 .column__title {
     color: white;
-    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 400;
     font-size: 24px;
 
@@ -84,8 +82,6 @@
 
 .column__content {
     margin-top: 35px;
-    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 300;
     font-size: 14px;
 
@@ -133,7 +129,7 @@
 }
 
 .footer__callback {
-    margin-top: 45px;
+    margin-top: 25px;
 
     > button {
         margin-left: 0;
@@ -176,8 +172,6 @@ hr {
 
 .footer__rights {
     color: #74757f !important;
-    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 14px;
     font-weight: 300;
 
