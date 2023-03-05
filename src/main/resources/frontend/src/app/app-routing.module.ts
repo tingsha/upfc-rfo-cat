@@ -19,7 +19,6 @@ import {SchoolPageComponent} from "./pages/school-page/school-page.component";
 import {SuccessPageComponent} from "./pages/success-page/success-page.component";
 import {TechnicalWorksPageComponent} from "./pages/technical-works-page/technical-works-page.component";
 import {TransferPageComponent} from "./pages/transfer-page/transfer-page.component";
-import {IndexPageComponent} from "./pages/index-page/index-page.component";
 
 const routes: Routes = [
     {
@@ -116,11 +115,6 @@ const routes: Routes = [
         path: 'transfer',
         component: TransferPageComponent,
         title: 'Трансфер'
-    },
-    {
-        path: 'index',
-        component: IndexPageComponent,
-        title: 'Региональное отделение Российской фелинологической организации &quot;Уральский племенной фелинологический центр&quot;'
     }
 ];
 
