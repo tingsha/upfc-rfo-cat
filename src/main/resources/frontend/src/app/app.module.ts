@@ -27,6 +27,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NgxMaskDirective, provideEnvironmentNgxMask} from "ngx-mask";
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import {HttpClientModule} from "@angular/common/http";
+import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
+import { ManagementPageComponent } from './pages/management-page/management-page.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -51,6 +53,8 @@ import {HttpClientModule} from "@angular/common/http";
         TransferPageComponent,
         FeedbackFormComponent,
         FileUploadComponent,
+        ContactsPageComponent,
+        ManagementPageComponent,
     ],
     imports: [
         BrowserModule,

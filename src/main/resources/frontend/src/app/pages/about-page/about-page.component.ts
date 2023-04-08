@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {EmailService} from "../../services/email.service";
 
 @Component({
     selector: 'app-about-page',
@@ -6,6 +8,42 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./about-page.component.scss']
 })
 export class AboutPageComponent implements OnInit {
+
+    feedbackForm = new FormGroup({
+        name: new FormControl<string>('', Validators.required),
+        phone: new FormControl<string>('', Validators.minLength(10)),
+        email: new FormControl<string>('', [
+            Validators.required,
+            Validators.email
+        ]),
+        message: new FormControl<string>('', Validators.required)
+    })
+
+    showSuccessLabel: boolean = false;
+
+    constructor(private emailService: EmailService) {
+    }
+
+    get name(): FormControl {
+        return this.feedbackForm.controls.name
+    }
+
+    get email(): FormControl {
+        return this.feedbackForm.controls.email
+    }
+
+    get phone(): FormControl {
+        return this.feedbackForm.controls.phone
+    }
+
+    get message(): FormControl {
+        return this.feedbackForm.controls.message
+    }
+
+    submit() {
+        this.showSuccessLabel = this.emailService.sendMessage(this.feedbackForm, 'Обратная связь')
+    }
+
     ngOnInit(): void {
         //@ts-ignore
         ymaps.ready(init);

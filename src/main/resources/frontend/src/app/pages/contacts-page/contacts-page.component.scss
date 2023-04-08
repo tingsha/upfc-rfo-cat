@@ -1,0 +1,46 @@
+@import "../../../assets/scss/_mixins.scss";
+@import "../../../assets/scss/_vars.scss";
+@import "../../../assets/scss/layout.scss";
+@import "../../../assets/scss/breadcrumbs.scss";
+
+
+.contacts__container {
+    background-color: $secondary-background-color;
+    color: #a5a7ad;
+}
+
+.cards__container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.contacts__card {
+    width: 25%;
+    text-align: center;
+    border-left: 1px solid white;
+    display: flex;
+    flex-direction: column;
+}
+
+.card__image  {
+    color: #a5a7ad;
+
+    .icon {
+        color: #204995;
+        font-size: 1.875em;
+    }
+}
+
+.image__text {
+    cursor: pointer;
+    padding-left: 5px;
+    margin-bottom: 15px;
+
+    &:hover {
+        color: darken(#a5a7ad, 5%);
+    }
+}
+
+.card__text {
+    margin-top: 15px;
+}

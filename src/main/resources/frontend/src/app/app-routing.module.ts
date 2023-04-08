@@ -19,6 +19,8 @@ import {SchoolPageComponent} from "./pages/school-page/school-page.component";
 import {SuccessPageComponent} from "./pages/success-page/success-page.component";
 import {TechnicalWorksPageComponent} from "./pages/technical-works-page/technical-works-page.component";
 import {TransferPageComponent} from "./pages/transfer-page/transfer-page.component";
+import {ContactsPageComponent} from "./pages/contacts-page/contacts-page.component";
+import {ManagementPageComponent} from "./pages/management-page/management-page.component";
 
 const routes: Routes = [
     {
@@ -115,6 +117,16 @@ const routes: Routes = [
         path: 'transfer',
         component: TransferPageComponent,
         title: 'Трансфер'
+    },
+    {
+        path: 'contacts',
+        component: ContactsPageComponent,
+        title: 'Контакты'
+    },
+    {
+        path: 'management',
+        component: ManagementPageComponent,
+        title: 'Правление'
     }
 ];
 

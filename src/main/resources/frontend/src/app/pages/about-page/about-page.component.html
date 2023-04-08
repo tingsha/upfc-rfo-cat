@@ -2,7 +2,7 @@
     <section class="title">
         <div class="container title__container">
             <h3 class="title__pretitle">Фелинология для всех</h3>
-            <h1 class="title__text">Российское фелинологическое общество</h1>
+            <h1 class="title__text">Уральский племенной фелинологический центр</h1>
             <h5 class="title__subtitle">Профессиональное разведение кошек, основанное на знаниях генетики и
                 стандартах</h5>
             <div class="title__buttons">
@@ -120,29 +120,9 @@
                     <h3 class="education__title">ОБУЧАЙТЕСЬ С РФО </h3>
                     <p class="education__subtitle">Профессиональное разведение кошек, основанное на знаниях генетики и
                         стандартах</p>
-                    <div class="education__item wow slideInLeft" style="margin-top: 0">
-                        <img class="education__icon" src="/assets/images/icons/auction.png" alt="">
-                        <a routerLink="/empty" class="education__item-text">Обучение судей</a>
-                    </div>
-                    <div class="education__item wow slideInLeft">
-                        <img class="education__icon" src="/assets/images/icons/assistant.png" alt="">
-                        <a routerLink="/empty" class="education__item-text">Обучение ассистентов судей</a>
-                    </div>
-                    <div class="education__item wow slideInLeft">
-                        <img class="education__icon" src="/assets/images/icons/manager.png" alt="">
-                        <a routerLink="/empty" class="education__item-text">Обучение шоу-менеджеров</a>
-                    </div>
-                    <div class="education__item wow slideInLeft">
-                        <img class="education__icon" src="/assets/images/icons/president.png" alt="">
-                        <a routerLink="/empty" class="education__item-text">Обучение Президентов клубов</a>
-                    </div>
-                    <div class="education__item wow slideInLeft">
-                        <img class="education__icon" src="/assets/images/icons/steward.png" alt="">
-                        <a routerLink="/empty" class="education__item-text">Школа стюардов</a>
-                    </div>
                     <div class="education__item wow slideInLeft">
                         <img class="education__icon" src="/assets/images/icons/paw-print.png" alt="">
-                        <a routerLink="/empty" class="education__item-text">Школа фелинологов</a>
+                        <a routerLink="/empty" class="education__item-text">Вебинары для фелинологов</a>
                     </div>
                 </div>
             </div>
@@ -151,33 +131,49 @@
     <section class="contacts">
         <div class="contacts__left">
             <h3 class="contacts__title">Написать нам</h3>
-            <form class="forms" method="post">
+            <form [formGroup]="feedbackForm" (ngSubmit)="submit()" class="forms">
                 <div class="forms__wrapper">
-                    <div class="form">
-                        <label for="feedbackName">Имя</label>
-                        <input id="feedbackName" type="text" required>
+                    <div class="form wow fadeSlideInUp">
+                        <label>Имя</label>
+                        <input formControlName="name" type="text"
+                               [ngClass]="name.errors && name.touched ? 'border border-danger' : ''">
+                        <span *ngIf="name.errors?.['required'] && name.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
                     </div>
-                    <div class="form">
-                        <label for="feedbackPhone">Телефон</label>
-                        <input id="feedbackPhone" type="text">
+                    <div class="form wow fadeSlideInUp">
+                        <label>Ваш Телефон</label>
+                        <input type="text" formControlName="phone" prefix="+7 " mask='(000) 000-00-00'
+                               [ngClass]="phone.errors && phone.touched ? 'border border-danger' : ''">
+                        <span *ngIf="phone.errors?.['minlength'] && phone.touched" class="form-validation">Некорректный номер.</span>
                     </div>
                 </div>
-                <div class="form w-100">
-                    <label for="feedbackEmail">Ваш E-mail</label>
-                    <input id="feedbackEmail" type="text" required>
+                <div class="form w-100 wow fadeSlideInUp">
+                    <label>Ваш E-mail</label>
+                    <input formControlName="email" type="text"
+                           [ngClass]="email.errors && email.touched ? 'border border-danger' : ''">
+                    <span *ngIf="email.errors?.['required'] && email.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    <span *ngIf="email.errors?.['email'] && email.touched" class="form-validation">Электронная почта задана некорректно.</span>
                 </div>
-                <div class="form w-100">
-                    <label for="feedbackMessage">Ваше сообщение</label>
-                    <textarea id="feedbackMessage" required></textarea>
+                <div class="form w-100 wow fadeSlideInUp">
+                    <label>Ваше сообщение</label>
+                    <textarea formControlName="message"
+                              [ngClass]="message.errors && message.touched ? 'border border-danger' : ''"></textarea>
+                    <span *ngIf="message.errors?.['required'] && message.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
                 </div>
                 <div class="contacts__buttons">
-                    <button type="submit" class="contacts__send">отправить</button>
+                    <button type="submit" class="button__primary m-0 wow slideInRight">
+                        отправить
+                    </button>
                     <span>или использовать</span>
-                    <a class="contacts__whatsapp"
+                    <a class="button button-primary-outline button-winona wow slideInLeft"
                        href="https://api.whatsapp.com/send?phone=79089037937" target="_blank">
-                        <span class="icon novi-icon mdi mdi-whatsapp big-icon"></span>
-                        whatsapp
+                        <div class="button__secondary">
+                            <span class="icon novi-icon mdi mdi-whatsapp big-icon"></span>
+                            <span>WHATSAPP</span>
+                        </div>
                     </a>
+                </div>
+                <div *ngIf="showSuccessLabel">
+                    <p class="text-success" style="padding-left: 15px">Ваше сообщние отправлено</p>
                 </div>
             </form>
             <span class="contacts__policy">Отправляя форму вы соглашаетесь с

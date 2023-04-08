@@ -33,7 +33,9 @@ public class WebConfig implements WebMvcConfigurer {
                 "/success",
                 "/technical-works",
                 "/transfer",
-                "/index"
+                "/index",
+                "/contacts",
+                "/management"
         );
         urlPatterns.forEach(pattern -> registry.addViewController(pattern).setViewName("forward:/"));
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);

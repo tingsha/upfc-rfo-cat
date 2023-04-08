@@ -1,0 +1,118 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs__container">
+        <h1 class="breadcrumbs__title">Контакты</h1>
+        <div class="breadcrumbs__path">
+            <ul class="breadcrumbs__list pl-0">
+                <li class="breadcrumb__item pl-0">
+                    <a routerLink="/">Российское Фелинологическое Общество</a>
+                </li>
+                <li class="breadcrumb__item active"><span>Контакты</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="contacts__container">
+    <div class="container">
+        <div class="forms__layout">
+            <div class="cards__container">
+                <div class="contacts__card">
+                    <div class="card__image">
+                        <span class="icon novi-icon icon-md mdi mdi-phone"></span>
+                    </div>
+                    <div class="card__text">
+                        +7 (908) 903-79-37
+                    </div>
+                </div>
+                <div class="contacts__card">
+                    <div class="card__image">
+                        <span class="icon novi-icon icon-md mdi mdi-map-marker"></span>
+                    </div>
+                    <div class="card__text">
+                        624130, Россия, г. Новоуральск, Красногвардейский проезд, д. 4
+                    </div>
+                </div>
+                <div class="contacts__card">
+                    <div class="card__image">
+                        <span class="icon novi-icon icon-md mdi mdi-email"></span>
+                    </div>
+                    <div class="card__text">
+                        upfc@upfc-rfo-cat.ru (Служба поддержки)
+                    </div>
+                </div>
+                <div class="contacts__card">
+                    <a class="card__image mb-2" href="https://api.whatsapp.com/send?phone=79089037937" target="_blank">
+                        <span class="icon novi-icon icon-md mdi mdi-whatsapp"></span>
+                        <span class="image__text">WhatsApp</span>
+                    </a>
+                    <a class="card__image mb-2" href="">
+                        <span class="icon novi-icon icon-md mdi mdi-vk"></span>
+                        <span class="image__text">ВКонтакте</span>
+                    </a>
+                    <a class="card__image mb-2">
+                        <span class="icon novi-icon icon-md mdi mdi-facebook"></span>
+                        <span class="image__text">Facebook</span>
+                    </a>
+                    <a class="card__image mb-2">
+                        <span class="icon novi-icon icon-md mdi mdi-instagram"></span>
+                        <span class="image__text">Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contacts">
+        <div class="contacts__left">
+            <h3 class="contacts__title">Написать нам</h3>
+            <form [formGroup]="feedbackForm" (ngSubmit)="submit()" class="forms">
+                <div class="forms__wrapper">
+                    <div class="form wow fadeSlideInUp">
+                        <label>Имя</label>
+                        <input formControlName="name" type="text"
+                               [ngClass]="name.errors && name.touched ? 'border border-danger' : ''">
+                        <span *ngIf="name.errors?.['required'] && name.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    </div>
+                    <div class="form wow fadeSlideInUp">
+                        <label>Ваш Телефон</label>
+                        <input type="text" formControlName="phone" prefix="+7 " mask='(000) 000-00-00'
+                               [ngClass]="phone.errors && phone.touched ? 'border border-danger' : ''">
+                        <span *ngIf="phone.errors?.['minlength'] && phone.touched" class="form-validation">Некорректный номер.</span>
+                    </div>
+                </div>
+                <div class="form w-100 wow fadeSlideInUp">
+                    <label>Ваш E-mail</label>
+                    <input formControlName="email" type="text"
+                           [ngClass]="email.errors && email.touched ? 'border border-danger' : ''">
+                    <span *ngIf="email.errors?.['required'] && email.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                    <span *ngIf="email.errors?.['email'] && email.touched" class="form-validation">Электронная почта задана некорректно.</span>
+                </div>
+                <div class="form w-100 wow fadeSlideInUp">
+                    <label>Ваше сообщение</label>
+                    <textarea formControlName="message"
+                              [ngClass]="message.errors && message.touched ? 'border border-danger' : ''"></textarea>
+                    <span *ngIf="message.errors?.['required'] && message.touched" class="form-validation">Необходимо заполнить текстовое поле.</span>
+                </div>
+                <div class="contacts__buttons">
+                    <button type="submit" class="button__primary m-0 wow slideInRight">
+                        отправить
+                    </button>
+                    <span>или использовать</span>
+                    <a class="button button-primary-outline button-winona wow slideInLeft"
+                       href="https://api.whatsapp.com/send?phone=79089037937" target="_blank">
+                        <div class="button__secondary">
+                            <span class="icon novi-icon mdi mdi-whatsapp big-icon"></span>
+                            <span>WHATSAPP</span>
+                        </div>
+                    </a>
+                </div>
+                <div *ngIf="showSuccessLabel">
+                    <p class="text-success" style="padding-left: 15px">Ваше сообщние отправлено</p>
+                </div>
+            </form>
+            <span class="contacts__policy">Отправляя форму вы соглашаетесь с
+                            <a routerLink="/personal-data"><u>"Политикой обработки персональных данных"</u></a></span>
+        </div>
+        <div class="contacts__right">
+            <div id="map" class="map"></div>
+        </div>
+    </div>
+</div>

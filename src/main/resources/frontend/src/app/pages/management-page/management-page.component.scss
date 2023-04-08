@@ -1,0 +1,60 @@
+@import "../../../assets/scss/_mixins.scss";
+@import "../../../assets/scss/_vars.scss";
+@import "../../../assets/scss/layout.scss";
+@import "../../../assets/scss/breadcrumbs.scss";
+
+
+.management__container {
+    background-color: $secondary-background-color;
+    color: #a5a7ad;
+}
+
+.management__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.management__card {
+    display: flex;
+
+    @include breakpoint($mobile-bp) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.card__person {
+
+    img {
+        max-width: 215px;
+        max-height: 300px;
+    }
+}
+
+
+.card__info {
+    width: 400px;
+    margin-left: 30px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include breakpoint(640px) {
+        width: auto;
+    }
+
+    @include breakpoint($mobile-bp) {
+        margin-top: 10px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    h5 {
+        @include breakpoint($mobile-bp) {
+            font-size: 18px;
+        }
+    }
+}
