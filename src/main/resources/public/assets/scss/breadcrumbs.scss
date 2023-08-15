@@ -1,6 +1,5 @@
 .breadcrumbs {
-    background: url(/assets/images/bg.jpg) center no-repeat;
-    background-size: cover;
+    background-color: $primary-background-color;
 }
 
 .breadcrumbs__container {
@@ -39,8 +38,6 @@
     list-style: none;
     font-size: 14px;
     font-weight: 300;
-    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
     text-decoration: none;
 
     @include breakpoint(768px) {
@@ -49,8 +46,7 @@
 }
 
 .breadcrumbs__title {
-    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: white;
     font-size: 58px;
     font-weight: 400;
 
@@ -72,7 +68,6 @@
 }
 
 .breadcrumb__item {
-    color: #74757f;
     padding-left: 30px;
     padding-right: 30px;
     position: relative;
@@ -80,11 +75,11 @@
     vertical-align: middle;
 
     &.active {
-        color: #204995;
+        color: #0ac278;
     }
 
     > a {
-        color: #74757f;
+        color: #a5a7ad;
     }
 
     &:nth-last-child(1) {
@@ -94,6 +89,7 @@
     }
 
     &::after {
+        color: #a5a7ad;
         content: "\f054";
         font-family: "FontAwesome";
         position: absolute;
@@ -102,7 +98,6 @@
         display: inline-block;
         font-size: 10px;
         font-style: normal;
-        color: inherit;
         transform: translate3d(0, -50%, 0);
     }
 }
